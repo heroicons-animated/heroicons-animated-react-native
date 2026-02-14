@@ -1,0 +1,54 @@
+{
+  "expo": {
+    "name": "Heroicons Animated",
+    "slug": "heroicons-animated-react-native",
+    "version": "1.0.0",
+    "orientation": "default",
+    "icon": "./assets/icon.png",
+    "scheme": "heroicons-animated",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.heroicons-animated.react-native-demo",
+      "infoPlist": {
+        "CFBundleDisplayName": "Heroicons Animated"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true,
+      "package": "com.heroiconsanimated.reactnativedemo"
+    },
+    "web": {
+      "bundler": "metro",
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": ""
+      },
+      "router": {
+        "origin": false
+      }
+    },
+    "owner": "heroicons-animated",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/"
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "name": "@heroicons-animated/react-native",
+  "version": "0.1.0",
+  "description": "Free open-source library of 316 beautifully animated Heroicons for React Native. Smooth animations powered by Reanimated. Drop-in replacements with press-to-animate, fully customizable SVG icons for iOS and Android.",
+  "author": "heroicons-animated",
+  "license": "MIT",
+  "homepage": "https://github.com/heroicons-animated/heroicons-animated-react-native#readme",
+  "bugs": {
+    "url": "https://github.com/heroicons-animated/heroicons-animated-react-native/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heroicons-animated/heroicons-animated-react-native.git",
+    "directory": "packages/react-native"
+  },
+  "keywords": [
+    "heroicons",
+    "react-native",
+    "animated icons",
+    "react native icons",
+    "icons",
+    "animated",
+    "reanimated",
+    "react-native-reanimated",
+    "svg",
+    "react-native-svg",
+    "ios icons",
+    "android icons",
+    "icon library",
+    "animated svg",
+    "icon components",
+    "mobile icons",
+    "expo icons",
+    "heroicons animated",
+    "animated heroicons",
+    "press to animate",
+    "svg animations",
+    "react native components",
+    "open source icons",
+    "free icons",
+    "MIT license icons",
+    "tailwind icons",
+    "expo",
+    "react native ui"
+  ],
+  "sideEffects": false,
+  "main": "lib/commonjs/index.js",
+  "module": "lib/module/index.js",
+  "types": "lib/typescript/index.d.ts",
+  "react-native": "src/index.ts",
+  "source": "src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/typescript/index.d.ts",
+      "import": "./lib/module/index.js",
+      "require": "./lib/commonjs/index.js"
+    },
+    "./package.json": "./package.json",
+    "./*": {
+      "types": "./lib/typescript/icons/*.d.ts",
+      "import": "./lib/module/icons/*.js",
+      "require": "./lib/commonjs/icons/*.js"
+    }
+  },
+  "files": [
+    "lib",
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "bob build",
+    "type-check": "tsc --noEmit",
+    "prepublishOnly": "pnpm build && pnpm type-check"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-native": ">=0.72.0",
+    "react-native-reanimated": ">=3.0.0",
+    "react-native-svg": ">=13.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "~19.1.0",
+    "react": "19.1.0",
+    "react-native": "0.81.5",
+    "react-native-builder-bob": "^0.35.0",
+    "react-native-reanimated": "^4.2.1",
+    "react-native-svg": "^15.15.2",
+    "typescript": "~5.9.2"
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      ["typescript", { "project": "tsconfig.build.json" }]
+    ]
+  }
+}

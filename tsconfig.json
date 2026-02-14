@@ -1,0 +1,26 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "@/*": [
+        "./*"
+      ],
+      "@heroicons-animated/react-native": [
+        "./packages/react-native/src"
+      ],
+      "@heroicons-animated/react-native/*": [
+        "./packages/react-native/src/*"
+      ]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "packages/react-native/lib",
+    "scripts"
+  ]
+}
