@@ -22,11 +22,26 @@ const NewspaperIcon = forwardRef<NewspaperIconHandle, IconProps>(
     const p4Opacity = useSharedValue(1);
 
     const startAnimation = useCallback(() => {
-      p0Opacity.value = withSequence(withTiming(0, { duration: 150 }), withTiming(1, { duration: 150 }));
-      p1Opacity.value = withSequence(withTiming(0, { duration: 150 }), withTiming(1, { duration: 150 }));
-      p2Opacity.value = withSequence(withTiming(0, { duration: 150 }), withTiming(1, { duration: 150 }));
-      p3Opacity.value = withSequence(withTiming(0, { duration: 150 }), withTiming(1, { duration: 150 }));
-      p4Opacity.value = withSequence(withTiming(0, { duration: 150 }), withTiming(1, { duration: 150 }));
+      p0Opacity.value = withSequence(
+        withTiming(0, { duration: 150 }),
+        withTiming(1, { duration: 150 })
+      );
+      p1Opacity.value = withSequence(
+        withTiming(0, { duration: 150 }),
+        withTiming(1, { duration: 150 })
+      );
+      p2Opacity.value = withSequence(
+        withTiming(0, { duration: 150 }),
+        withTiming(1, { duration: 150 })
+      );
+      p3Opacity.value = withSequence(
+        withTiming(0, { duration: 150 }),
+        withTiming(1, { duration: 150 })
+      );
+      p4Opacity.value = withSequence(
+        withTiming(0, { duration: 150 }),
+        withTiming(1, { duration: 150 })
+      );
     }, [p0Opacity, p1Opacity, p2Opacity, p3Opacity, p4Opacity]);
 
     const stopAnimation = useCallback(() => {
@@ -70,28 +85,64 @@ const NewspaperIcon = forwardRef<NewspaperIconHandle, IconProps>(
         onPressOut={stopAnimation}
       >
         <Animated.View style={style}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-            <Path d="M16.5 7.5h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+          <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
+            <Path
+              d="M16.5 7.5h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
             <AnimatedG animatedProps={p0Props}>
-              <Path d="M6 7.5h3v3H6v-3Z" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M6 7.5h3v3H6v-3Z"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={p1Props}>
-              <Path d="M12 7.5h1.5" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M12 7.5h1.5"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={p2Props}>
-              <Path d="M12 10.5h1.5" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M12 10.5h1.5"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={p3Props}>
-              <Path d="M6 13.5h7.5" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M6 13.5h7.5"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={p4Props}>
-              <Path d="M6 16.5h7.5" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M6 16.5h7.5"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
           </Svg>
         </Animated.View>
       </IconWrapper>
     );
-  },
+  }
 );
 
 NewspaperIcon.displayName = "NewspaperIcon";

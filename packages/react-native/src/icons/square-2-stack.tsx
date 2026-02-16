@@ -22,11 +22,28 @@ const Square2StackIcon = forwardRef<Square2StackIconHandle, IconProps>(
     const p1TranslateY = useSharedValue(0);
 
     const startAnimation = useCallback(() => {
-      p0TranslateX.value = withSequence(withTiming(-4, { duration: 150 }), withTiming(0, { duration: 150 }));
-      p0TranslateY.value = withSequence(withTiming(-4, { duration: 150 }), withTiming(0, { duration: 150 }));
-      p0Opacity.value = withSequence(withTiming(0, { duration: 150 }), withTiming(1, { duration: 150 }));
-      p1TranslateX.value = withSequence(withTiming(0, { duration: 100 }), withTiming(1, { duration: 100 }), withTiming(0, { duration: 100 }));
-      p1TranslateY.value = withSequence(withTiming(0, { duration: 100 }), withTiming(1, { duration: 100 }), withTiming(0, { duration: 100 }));
+      p0TranslateX.value = withSequence(
+        withTiming(-4, { duration: 150 }),
+        withTiming(0, { duration: 150 })
+      );
+      p0TranslateY.value = withSequence(
+        withTiming(-4, { duration: 150 }),
+        withTiming(0, { duration: 150 })
+      );
+      p0Opacity.value = withSequence(
+        withTiming(0, { duration: 150 }),
+        withTiming(1, { duration: 150 })
+      );
+      p1TranslateX.value = withSequence(
+        withTiming(0, { duration: 100 }),
+        withTiming(1, { duration: 100 }),
+        withTiming(0, { duration: 100 })
+      );
+      p1TranslateY.value = withSequence(
+        withTiming(0, { duration: 100 }),
+        withTiming(1, { duration: 100 }),
+        withTiming(0, { duration: 100 })
+      );
     }, [p0TranslateX, p0TranslateY, p0Opacity, p1TranslateX, p1TranslateY]);
 
     const stopAnimation = useCallback(() => {
@@ -61,18 +78,30 @@ const Square2StackIcon = forwardRef<Square2StackIconHandle, IconProps>(
         onPressOut={stopAnimation}
       >
         <Animated.View style={style}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+          <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
             <AnimatedG animatedProps={p0Props}>
-              <Path d="M16.5 8.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v8.25A2.25 2.25 0 0 0 6 16.5h2.25" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M16.5 8.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v8.25A2.25 2.25 0 0 0 6 16.5h2.25"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={p1Props}>
-              <Path d="M16.5 8.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-7.5A2.25 2.25 0 0 1 8.25 18v-1.5m8.25-8.25h-6a2.25 2.25 0 0 0-2.25 2.25v6" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M16.5 8.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-7.5A2.25 2.25 0 0 1 8.25 18v-1.5m8.25-8.25h-6a2.25 2.25 0 0 0-2.25 2.25v6"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
           </Svg>
         </Animated.View>
       </IconWrapper>
     );
-  },
+  }
 );
 
 Square2StackIcon.displayName = "Square2StackIcon";

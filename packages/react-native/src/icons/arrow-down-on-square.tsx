@@ -16,7 +16,12 @@ const ArrowDownOnSquareIcon = forwardRef<ArrowDownOnSquareIconHandle, IconProps>
     const translateY = useSharedValue(0);
 
     const startAnimation = useCallback(() => {
-      translateY.value = withSequence(withTiming(0, { duration: 100 }), withTiming(-2, { duration: 100 }), withTiming(2, { duration: 100 }), withTiming(0, { duration: 100 }));
+      translateY.value = withSequence(
+        withTiming(0, { duration: 100 }),
+        withTiming(-2, { duration: 100 }),
+        withTiming(2, { duration: 100 }),
+        withTiming(0, { duration: 100 })
+      );
     }, [translateY]);
 
     const stopAnimation = useCallback(() => {
@@ -40,14 +45,26 @@ const ArrowDownOnSquareIcon = forwardRef<ArrowDownOnSquareIconHandle, IconProps>
         onPressOut={stopAnimation}
       >
         <Animated.View style={[animatedStyle, style]}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-            <Path d="M9 8.25H7.5a2.25 2.25 0 0 0-2.25 2.25v9a2.25 2.25 0 0 0 2.25 2.25h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25H15" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
-            <Path d="M9 12l3 3m0 0 3-3m-3 3V2.25" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+          <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
+            <Path
+              d="M9 8.25H7.5a2.25 2.25 0 0 0-2.25 2.25v9a2.25 2.25 0 0 0 2.25 2.25h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25H15"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
+            <Path
+              d="M9 12l3 3m0 0 3-3m-3 3V2.25"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
           </Svg>
         </Animated.View>
       </IconWrapper>
     );
-  },
+  }
 );
 
 ArrowDownOnSquareIcon.displayName = "ArrowDownOnSquareIcon";

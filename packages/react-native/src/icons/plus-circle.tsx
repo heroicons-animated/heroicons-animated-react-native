@@ -17,8 +17,14 @@ const PlusCircleIcon = forwardRef<PlusCircleIconHandle, IconProps>(
     const scale = useSharedValue(1);
 
     const startAnimation = useCallback(() => {
-      opacity.value = withSequence(withTiming(0, { duration: 200 }), withTiming(1, { duration: 200 }));
-      scale.value = withSequence(withTiming(0.5, { duration: 200 }), withTiming(1, { duration: 200 }));
+      opacity.value = withSequence(
+        withTiming(0, { duration: 200 }),
+        withTiming(1, { duration: 200 })
+      );
+      scale.value = withSequence(
+        withTiming(0.5, { duration: 200 }),
+        withTiming(1, { duration: 200 })
+      );
     }, [opacity, scale]);
 
     const stopAnimation = useCallback(() => {
@@ -44,15 +50,33 @@ const PlusCircleIcon = forwardRef<PlusCircleIconHandle, IconProps>(
         onPressOut={stopAnimation}
       >
         <Animated.View style={[animatedStyle, style]}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-            <Path d="M12 21a9 9 0 1 1 0-18 9 9 0 0 1 0 18Z" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
-            <Path d="M12 9v6" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
-            <Path d="M9 12h6" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+          <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
+            <Path
+              d="M12 21a9 9 0 1 1 0-18 9 9 0 0 1 0 18Z"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
+            <Path
+              d="M12 9v6"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
+            <Path
+              d="M9 12h6"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
           </Svg>
         </Animated.View>
       </IconWrapper>
     );
-  },
+  }
 );
 
 PlusCircleIcon.displayName = "PlusCircleIcon";

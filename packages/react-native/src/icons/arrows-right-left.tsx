@@ -19,8 +19,16 @@ const ArrowsRightLeftIcon = forwardRef<ArrowsRightLeftIconHandle, IconProps>(
     const g1TranslateX = useSharedValue(0);
 
     const startAnimation = useCallback(() => {
-      g0TranslateX.value = withSequence(withTiming(0, { duration: 167 }), withTiming(-2, { duration: 167 }), withTiming(0, { duration: 167 }));
-      g1TranslateX.value = withSequence(withTiming(0, { duration: 167 }), withTiming(2, { duration: 167 }), withTiming(0, { duration: 167 }));
+      g0TranslateX.value = withSequence(
+        withTiming(0, { duration: 167 }),
+        withTiming(-2, { duration: 167 }),
+        withTiming(0, { duration: 167 })
+      );
+      g1TranslateX.value = withSequence(
+        withTiming(0, { duration: 167 }),
+        withTiming(2, { duration: 167 }),
+        withTiming(0, { duration: 167 })
+      );
     }, [g0TranslateX, g1TranslateX]);
 
     const stopAnimation = useCallback(() => {
@@ -49,18 +57,30 @@ const ArrowsRightLeftIcon = forwardRef<ArrowsRightLeftIconHandle, IconProps>(
         onPressOut={stopAnimation}
       >
         <Animated.View style={style}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+          <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
             <AnimatedG animatedProps={g0Props}>
-              <Path d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={g1Props}>
-              <Path d="M16.5 3L21 7.5m0 0L16.5 12M21 7.5H7.5" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M16.5 3L21 7.5m0 0L16.5 12M21 7.5H7.5"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
           </Svg>
         </Animated.View>
       </IconWrapper>
     );
-  },
+  }
 );
 
 ArrowsRightLeftIcon.displayName = "ArrowsRightLeftIcon";

@@ -25,15 +25,56 @@ const ArrowsPointingOutIcon = forwardRef<ArrowsPointingOutIconHandle, IconProps>
     const g3TranslateY = useSharedValue(0);
 
     const startAnimation = useCallback(() => {
-      g0TranslateX.value = withSequence(withTiming(0, { duration: 167 }), withTiming(-2, { duration: 167 }), withTiming(0, { duration: 167 }));
-      g0TranslateY.value = withSequence(withTiming(0, { duration: 167 }), withTiming(-2, { duration: 167 }), withTiming(0, { duration: 167 }));
-      g1TranslateX.value = withSequence(withTiming(0, { duration: 167 }), withTiming(-2, { duration: 167 }), withTiming(0, { duration: 167 }));
-      g1TranslateY.value = withSequence(withTiming(0, { duration: 167 }), withTiming(2, { duration: 167 }), withTiming(0, { duration: 167 }));
-      g2TranslateX.value = withSequence(withTiming(0, { duration: 167 }), withTiming(2, { duration: 167 }), withTiming(0, { duration: 167 }));
-      g2TranslateY.value = withSequence(withTiming(0, { duration: 167 }), withTiming(-2, { duration: 167 }), withTiming(0, { duration: 167 }));
-      g3TranslateX.value = withSequence(withTiming(0, { duration: 167 }), withTiming(2, { duration: 167 }), withTiming(0, { duration: 167 }));
-      g3TranslateY.value = withSequence(withTiming(0, { duration: 167 }), withTiming(2, { duration: 167 }), withTiming(0, { duration: 167 }));
-    }, [g0TranslateX, g0TranslateY, g1TranslateX, g1TranslateY, g2TranslateX, g2TranslateY, g3TranslateX, g3TranslateY]);
+      g0TranslateX.value = withSequence(
+        withTiming(0, { duration: 167 }),
+        withTiming(-2, { duration: 167 }),
+        withTiming(0, { duration: 167 })
+      );
+      g0TranslateY.value = withSequence(
+        withTiming(0, { duration: 167 }),
+        withTiming(-2, { duration: 167 }),
+        withTiming(0, { duration: 167 })
+      );
+      g1TranslateX.value = withSequence(
+        withTiming(0, { duration: 167 }),
+        withTiming(-2, { duration: 167 }),
+        withTiming(0, { duration: 167 })
+      );
+      g1TranslateY.value = withSequence(
+        withTiming(0, { duration: 167 }),
+        withTiming(2, { duration: 167 }),
+        withTiming(0, { duration: 167 })
+      );
+      g2TranslateX.value = withSequence(
+        withTiming(0, { duration: 167 }),
+        withTiming(2, { duration: 167 }),
+        withTiming(0, { duration: 167 })
+      );
+      g2TranslateY.value = withSequence(
+        withTiming(0, { duration: 167 }),
+        withTiming(-2, { duration: 167 }),
+        withTiming(0, { duration: 167 })
+      );
+      g3TranslateX.value = withSequence(
+        withTiming(0, { duration: 167 }),
+        withTiming(2, { duration: 167 }),
+        withTiming(0, { duration: 167 })
+      );
+      g3TranslateY.value = withSequence(
+        withTiming(0, { duration: 167 }),
+        withTiming(2, { duration: 167 }),
+        withTiming(0, { duration: 167 })
+      );
+    }, [
+      g0TranslateX,
+      g0TranslateY,
+      g1TranslateX,
+      g1TranslateY,
+      g2TranslateX,
+      g2TranslateY,
+      g3TranslateX,
+      g3TranslateY,
+    ]);
 
     const stopAnimation = useCallback(() => {
       g0TranslateX.value = withTiming(0, { duration: 200 });
@@ -44,7 +85,16 @@ const ArrowsPointingOutIcon = forwardRef<ArrowsPointingOutIconHandle, IconProps>
       g2TranslateY.value = withTiming(0, { duration: 200 });
       g3TranslateX.value = withTiming(0, { duration: 200 });
       g3TranslateY.value = withTiming(0, { duration: 200 });
-    }, [g0TranslateX, g0TranslateY, g1TranslateX, g1TranslateY, g2TranslateX, g2TranslateY, g3TranslateX, g3TranslateY]);
+    }, [
+      g0TranslateX,
+      g0TranslateY,
+      g1TranslateX,
+      g1TranslateY,
+      g2TranslateX,
+      g2TranslateY,
+      g3TranslateX,
+      g3TranslateY,
+    ]);
 
     useImperativeHandle(ref, () => ({
       startAnimation,
@@ -79,24 +129,48 @@ const ArrowsPointingOutIcon = forwardRef<ArrowsPointingOutIconHandle, IconProps>
         onPressOut={stopAnimation}
       >
         <Animated.View style={style}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+          <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
             <AnimatedG animatedProps={g0Props}>
-              <Path d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={g1Props}>
-              <Path d="M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={g2Props}>
-              <Path d="M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={g3Props}>
-              <Path d="M20.25 20.25h-4.5m4.5 0v-4.5m0 4.5L15 15" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M20.25 20.25h-4.5m4.5 0v-4.5m0 4.5L15 15"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
           </Svg>
         </Animated.View>
       </IconWrapper>
     );
-  },
+  }
 );
 
 ArrowsPointingOutIcon.displayName = "ArrowsPointingOutIcon";

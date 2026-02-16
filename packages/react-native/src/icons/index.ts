@@ -1,31 +1,61 @@
 export { AcademicCapIcon, type AcademicCapIconHandle } from "./academic-cap";
-export { AdjustmentsHorizontalIcon, type AdjustmentsHorizontalIconHandle } from "./adjustments-horizontal";
-export { AdjustmentsVerticalIcon, type AdjustmentsVerticalIconHandle } from "./adjustments-vertical";
+export {
+  AdjustmentsHorizontalIcon,
+  type AdjustmentsHorizontalIconHandle,
+} from "./adjustments-horizontal";
+export {
+  AdjustmentsVerticalIcon,
+  type AdjustmentsVerticalIconHandle,
+} from "./adjustments-vertical";
 export { ArchiveBoxIcon, type ArchiveBoxIconHandle } from "./archive-box";
-export { ArchiveBoxArrowDownIcon, type ArchiveBoxArrowDownIconHandle } from "./archive-box-arrow-down";
+export {
+  ArchiveBoxArrowDownIcon,
+  type ArchiveBoxArrowDownIconHandle,
+} from "./archive-box-arrow-down";
 export { ArchiveBoxXMarkIcon, type ArchiveBoxXMarkIconHandle } from "./archive-box-x-mark";
 export { ArrowDownIcon, type ArrowDownIconHandle } from "./arrow-down";
 export { ArrowDownCircleIcon, type ArrowDownCircleIconHandle } from "./arrow-down-circle";
 export { ArrowDownLeftIcon, type ArrowDownLeftIconHandle } from "./arrow-down-left";
 export { ArrowDownOnSquareIcon, type ArrowDownOnSquareIconHandle } from "./arrow-down-on-square";
-export { ArrowDownOnSquareStackIcon, type ArrowDownOnSquareStackIconHandle } from "./arrow-down-on-square-stack";
+export {
+  ArrowDownOnSquareStackIcon,
+  type ArrowDownOnSquareStackIconHandle,
+} from "./arrow-down-on-square-stack";
 export { ArrowDownRightIcon, type ArrowDownRightIconHandle } from "./arrow-down-right";
 export { ArrowDownTrayIcon, type ArrowDownTrayIconHandle } from "./arrow-down-tray";
 export { ArrowLeftIcon, type ArrowLeftIconHandle } from "./arrow-left";
 export { ArrowLeftCircleIcon, type ArrowLeftCircleIconHandle } from "./arrow-left-circle";
-export { ArrowLeftEndOnRectangleIcon, type ArrowLeftEndOnRectangleIconHandle } from "./arrow-left-end-on-rectangle";
-export { ArrowLeftStartOnRectangleIcon, type ArrowLeftStartOnRectangleIconHandle } from "./arrow-left-start-on-rectangle";
+export {
+  ArrowLeftEndOnRectangleIcon,
+  type ArrowLeftEndOnRectangleIconHandle,
+} from "./arrow-left-end-on-rectangle";
+export {
+  ArrowLeftStartOnRectangleIcon,
+  type ArrowLeftStartOnRectangleIconHandle,
+} from "./arrow-left-start-on-rectangle";
 export { ArrowLongDownIcon, type ArrowLongDownIconHandle } from "./arrow-long-down";
 export { ArrowLongLeftIcon, type ArrowLongLeftIconHandle } from "./arrow-long-left";
 export { ArrowLongRightIcon, type ArrowLongRightIconHandle } from "./arrow-long-right";
 export { ArrowLongUpIcon, type ArrowLongUpIconHandle } from "./arrow-long-up";
 export { ArrowPathIcon, type ArrowPathIconHandle } from "./arrow-path";
-export { ArrowPathRoundedSquareIcon, type ArrowPathRoundedSquareIconHandle } from "./arrow-path-rounded-square";
+export {
+  ArrowPathRoundedSquareIcon,
+  type ArrowPathRoundedSquareIconHandle,
+} from "./arrow-path-rounded-square";
 export { ArrowRightIcon, type ArrowRightIconHandle } from "./arrow-right";
 export { ArrowRightCircleIcon, type ArrowRightCircleIconHandle } from "./arrow-right-circle";
-export { ArrowRightEndOnRectangleIcon, type ArrowRightEndOnRectangleIconHandle } from "./arrow-right-end-on-rectangle";
-export { ArrowRightStartOnRectangleIcon, type ArrowRightStartOnRectangleIconHandle } from "./arrow-right-start-on-rectangle";
-export { ArrowTopRightOnSquareIcon, type ArrowTopRightOnSquareIconHandle } from "./arrow-top-right-on-square";
+export {
+  ArrowRightEndOnRectangleIcon,
+  type ArrowRightEndOnRectangleIconHandle,
+} from "./arrow-right-end-on-rectangle";
+export {
+  ArrowRightStartOnRectangleIcon,
+  type ArrowRightStartOnRectangleIconHandle,
+} from "./arrow-right-start-on-rectangle";
+export {
+  ArrowTopRightOnSquareIcon,
+  type ArrowTopRightOnSquareIconHandle,
+} from "./arrow-top-right-on-square";
 export { ArrowTrendingDownIcon, type ArrowTrendingDownIconHandle } from "./arrow-trending-down";
 export { ArrowTrendingUpIcon, type ArrowTrendingUpIconHandle } from "./arrow-trending-up";
 export { ArrowTurnDownLeftIcon, type ArrowTurnDownLeftIconHandle } from "./arrow-turn-down-left";
@@ -40,7 +70,10 @@ export { ArrowUpIcon, type ArrowUpIconHandle } from "./arrow-up";
 export { ArrowUpCircleIcon, type ArrowUpCircleIconHandle } from "./arrow-up-circle";
 export { ArrowUpLeftIcon, type ArrowUpLeftIconHandle } from "./arrow-up-left";
 export { ArrowUpOnSquareIcon, type ArrowUpOnSquareIconHandle } from "./arrow-up-on-square";
-export { ArrowUpOnSquareStackIcon, type ArrowUpOnSquareStackIconHandle } from "./arrow-up-on-square-stack";
+export {
+  ArrowUpOnSquareStackIcon,
+  type ArrowUpOnSquareStackIconHandle,
+} from "./arrow-up-on-square-stack";
 export { ArrowUpRightIcon, type ArrowUpRightIconHandle } from "./arrow-up-right";
 export { ArrowUpTrayIcon, type ArrowUpTrayIconHandle } from "./arrow-up-tray";
 export { ArrowUturnDownIcon, type ArrowUturnDownIconHandle } from "./arrow-uturn-down";
@@ -64,8 +97,8 @@ export { Bars4Icon, type Bars4IconHandle } from "./bars-4";
 export { BarsArrowDownIcon, type BarsArrowDownIconHandle } from "./bars-arrow-down";
 export { BarsArrowUpIcon, type BarsArrowUpIconHandle } from "./bars-arrow-up";
 export { Battery0Icon, type Battery0IconHandle } from "./battery-0";
-export { Battery100Icon, type Battery100IconHandle } from "./battery-100";
 export { Battery50Icon, type Battery50IconHandle } from "./battery-50";
+export { Battery100Icon, type Battery100IconHandle } from "./battery-100";
 export { BeakerIcon, type BeakerIconHandle } from "./beaker";
 export { BellIcon, type BellIconHandle } from "./bell";
 export { BellAlertIcon, type BellAlertIconHandle } from "./bell-alert";
@@ -93,13 +126,28 @@ export { CameraIcon, type CameraIconHandle } from "./camera";
 export { ChartBarIcon, type ChartBarIconHandle } from "./chart-bar";
 export { ChartBarSquareIcon, type ChartBarSquareIconHandle } from "./chart-bar-square";
 export { ChartPieIcon, type ChartPieIconHandle } from "./chart-pie";
-export { ChatBubbleBottomCenterIcon, type ChatBubbleBottomCenterIconHandle } from "./chat-bubble-bottom-center";
-export { ChatBubbleBottomCenterTextIcon, type ChatBubbleBottomCenterTextIconHandle } from "./chat-bubble-bottom-center-text";
+export {
+  ChatBubbleBottomCenterIcon,
+  type ChatBubbleBottomCenterIconHandle,
+} from "./chat-bubble-bottom-center";
+export {
+  ChatBubbleBottomCenterTextIcon,
+  type ChatBubbleBottomCenterTextIconHandle,
+} from "./chat-bubble-bottom-center-text";
 export { ChatBubbleLeftIcon, type ChatBubbleLeftIconHandle } from "./chat-bubble-left";
-export { ChatBubbleLeftEllipsisIcon, type ChatBubbleLeftEllipsisIconHandle } from "./chat-bubble-left-ellipsis";
-export { ChatBubbleLeftRightIcon, type ChatBubbleLeftRightIconHandle } from "./chat-bubble-left-right";
+export {
+  ChatBubbleLeftEllipsisIcon,
+  type ChatBubbleLeftEllipsisIconHandle,
+} from "./chat-bubble-left-ellipsis";
+export {
+  ChatBubbleLeftRightIcon,
+  type ChatBubbleLeftRightIconHandle,
+} from "./chat-bubble-left-right";
 export { ChatBubbleOvalLeftIcon, type ChatBubbleOvalLeftIconHandle } from "./chat-bubble-oval-left";
-export { ChatBubbleOvalLeftEllipsisIcon, type ChatBubbleOvalLeftEllipsisIconHandle } from "./chat-bubble-oval-left-ellipsis";
+export {
+  ChatBubbleOvalLeftEllipsisIcon,
+  type ChatBubbleOvalLeftEllipsisIconHandle,
+} from "./chat-bubble-oval-left-ellipsis";
 export { CheckIcon, type CheckIconHandle } from "./check";
 export { CheckBadgeIcon, type CheckBadgeIconHandle } from "./check-badge";
 export { CheckCircleIcon, type CheckCircleIconHandle } from "./check-circle";
@@ -115,8 +163,14 @@ export { ChevronUpDownIcon, type ChevronUpDownIconHandle } from "./chevron-up-do
 export { CircleStackIcon, type CircleStackIconHandle } from "./circle-stack";
 export { ClipboardIcon, type ClipboardIconHandle } from "./clipboard";
 export { ClipboardDocumentIcon, type ClipboardDocumentIconHandle } from "./clipboard-document";
-export { ClipboardDocumentCheckIcon, type ClipboardDocumentCheckIconHandle } from "./clipboard-document-check";
-export { ClipboardDocumentListIcon, type ClipboardDocumentListIconHandle } from "./clipboard-document-list";
+export {
+  ClipboardDocumentCheckIcon,
+  type ClipboardDocumentCheckIconHandle,
+} from "./clipboard-document-check";
+export {
+  ClipboardDocumentListIcon,
+  type ClipboardDocumentListIconHandle,
+} from "./clipboard-document-list";
 export { ClockIcon, type ClockIconHandle } from "./clock";
 export { CloudIcon, type CloudIconHandle } from "./cloud";
 export { CloudArrowDownIcon, type CloudArrowDownIconHandle } from "./cloud-arrow-down";
@@ -132,7 +186,10 @@ export { CpuChipIcon, type CpuChipIconHandle } from "./cpu-chip";
 export { CreditCardIcon, type CreditCardIconHandle } from "./credit-card";
 export { CubeIcon, type CubeIconHandle } from "./cube";
 export { CubeTransparentIcon, type CubeTransparentIconHandle } from "./cube-transparent";
-export { CurrencyBangladeshiIcon, type CurrencyBangladeshiIconHandle } from "./currency-bangladeshi";
+export {
+  CurrencyBangladeshiIcon,
+  type CurrencyBangladeshiIconHandle,
+} from "./currency-bangladeshi";
 export { CurrencyDollarIcon, type CurrencyDollarIconHandle } from "./currency-dollar";
 export { CurrencyEuroIcon, type CurrencyEuroIconHandle } from "./currency-euro";
 export { CurrencyPoundIcon, type CurrencyPoundIconHandle } from "./currency-pound";
@@ -148,25 +205,52 @@ export { DocumentArrowDownIcon, type DocumentArrowDownIconHandle } from "./docum
 export { DocumentArrowUpIcon, type DocumentArrowUpIconHandle } from "./document-arrow-up";
 export { DocumentChartBarIcon, type DocumentChartBarIconHandle } from "./document-chart-bar";
 export { DocumentCheckIcon, type DocumentCheckIconHandle } from "./document-check";
-export { DocumentCurrencyBangladeshiIcon, type DocumentCurrencyBangladeshiIconHandle } from "./document-currency-bangladeshi";
-export { DocumentCurrencyDollarIcon, type DocumentCurrencyDollarIconHandle } from "./document-currency-dollar";
-export { DocumentCurrencyEuroIcon, type DocumentCurrencyEuroIconHandle } from "./document-currency-euro";
-export { DocumentCurrencyPoundIcon, type DocumentCurrencyPoundIconHandle } from "./document-currency-pound";
-export { DocumentCurrencyRupeeIcon, type DocumentCurrencyRupeeIconHandle } from "./document-currency-rupee";
-export { DocumentCurrencyYenIcon, type DocumentCurrencyYenIconHandle } from "./document-currency-yen";
+export {
+  DocumentCurrencyBangladeshiIcon,
+  type DocumentCurrencyBangladeshiIconHandle,
+} from "./document-currency-bangladeshi";
+export {
+  DocumentCurrencyDollarIcon,
+  type DocumentCurrencyDollarIconHandle,
+} from "./document-currency-dollar";
+export {
+  DocumentCurrencyEuroIcon,
+  type DocumentCurrencyEuroIconHandle,
+} from "./document-currency-euro";
+export {
+  DocumentCurrencyPoundIcon,
+  type DocumentCurrencyPoundIconHandle,
+} from "./document-currency-pound";
+export {
+  DocumentCurrencyRupeeIcon,
+  type DocumentCurrencyRupeeIconHandle,
+} from "./document-currency-rupee";
+export {
+  DocumentCurrencyYenIcon,
+  type DocumentCurrencyYenIconHandle,
+} from "./document-currency-yen";
 export { DocumentDuplicateIcon, type DocumentDuplicateIconHandle } from "./document-duplicate";
-export { DocumentMagnifyingGlassIcon, type DocumentMagnifyingGlassIconHandle } from "./document-magnifying-glass";
+export {
+  DocumentMagnifyingGlassIcon,
+  type DocumentMagnifyingGlassIconHandle,
+} from "./document-magnifying-glass";
 export { DocumentMinusIcon, type DocumentMinusIconHandle } from "./document-minus";
 export { DocumentPlusIcon, type DocumentPlusIconHandle } from "./document-plus";
 export { DocumentTextIcon, type DocumentTextIconHandle } from "./document-text";
 export { EllipsisHorizontalIcon, type EllipsisHorizontalIconHandle } from "./ellipsis-horizontal";
-export { EllipsisHorizontalCircleIcon, type EllipsisHorizontalCircleIconHandle } from "./ellipsis-horizontal-circle";
+export {
+  EllipsisHorizontalCircleIcon,
+  type EllipsisHorizontalCircleIconHandle,
+} from "./ellipsis-horizontal-circle";
 export { EllipsisVerticalIcon, type EllipsisVerticalIconHandle } from "./ellipsis-vertical";
 export { EnvelopeIcon, type EnvelopeIconHandle } from "./envelope";
 export { EnvelopeOpenIcon, type EnvelopeOpenIconHandle } from "./envelope-open";
 export { EqualsIcon, type EqualsIconHandle } from "./equals";
 export { ExclamationCircleIcon, type ExclamationCircleIconHandle } from "./exclamation-circle";
-export { ExclamationTriangleIcon, type ExclamationTriangleIconHandle } from "./exclamation-triangle";
+export {
+  ExclamationTriangleIcon,
+  type ExclamationTriangleIconHandle,
+} from "./exclamation-triangle";
 export { EyeIcon, type EyeIconHandle } from "./eye";
 export { EyeDropperIcon, type EyeDropperIconHandle } from "./eye-dropper";
 export { EyeSlashIcon, type EyeSlashIconHandle } from "./eye-slash";
@@ -216,9 +300,18 @@ export { ListBulletIcon, type ListBulletIconHandle } from "./list-bullet";
 export { LockClosedIcon, type LockClosedIconHandle } from "./lock-closed";
 export { LockOpenIcon, type LockOpenIconHandle } from "./lock-open";
 export { MagnifyingGlassIcon, type MagnifyingGlassIconHandle } from "./magnifying-glass";
-export { MagnifyingGlassCircleIcon, type MagnifyingGlassCircleIconHandle } from "./magnifying-glass-circle";
-export { MagnifyingGlassMinusIcon, type MagnifyingGlassMinusIconHandle } from "./magnifying-glass-minus";
-export { MagnifyingGlassPlusIcon, type MagnifyingGlassPlusIconHandle } from "./magnifying-glass-plus";
+export {
+  MagnifyingGlassCircleIcon,
+  type MagnifyingGlassCircleIconHandle,
+} from "./magnifying-glass-circle";
+export {
+  MagnifyingGlassMinusIcon,
+  type MagnifyingGlassMinusIconHandle,
+} from "./magnifying-glass-minus";
+export {
+  MagnifyingGlassPlusIcon,
+  type MagnifyingGlassPlusIconHandle,
+} from "./magnifying-glass-plus";
 export { MapIcon, type MapIconHandle } from "./map";
 export { MapPinIcon, type MapPinIconHandle } from "./map-pin";
 export { MegaphoneIcon, type MegaphoneIconHandle } from "./megaphone";
@@ -249,8 +342,14 @@ export { PlayPauseIcon, type PlayPauseIconHandle } from "./play-pause";
 export { PlusIcon, type PlusIconHandle } from "./plus";
 export { PlusCircleIcon, type PlusCircleIconHandle } from "./plus-circle";
 export { PowerIcon, type PowerIconHandle } from "./power";
-export { PresentationChartBarIcon, type PresentationChartBarIconHandle } from "./presentation-chart-bar";
-export { PresentationChartLineIcon, type PresentationChartLineIconHandle } from "./presentation-chart-line";
+export {
+  PresentationChartBarIcon,
+  type PresentationChartBarIconHandle,
+} from "./presentation-chart-bar";
+export {
+  PresentationChartLineIcon,
+  type PresentationChartLineIconHandle,
+} from "./presentation-chart-line";
 export { PrinterIcon, type PrinterIconHandle } from "./printer";
 export { PuzzlePieceIcon, type PuzzlePieceIconHandle } from "./puzzle-piece";
 export { QrCodeIcon, type QrCodeIconHandle } from "./qr-code";

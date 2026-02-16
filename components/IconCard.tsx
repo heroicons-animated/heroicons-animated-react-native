@@ -1,15 +1,8 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import {
-  Platform,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-  useColorScheme,
-} from "react-native";
-import * as Clipboard from "expo-clipboard";
-import Svg, { Path } from "react-native-svg";
 import type { IconHandle } from "@heroicons-animated/react-native";
+import * as Clipboard from "expo-clipboard";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { Platform, Pressable, StyleSheet, Text, useColorScheme, View } from "react-native";
+import Svg, { Path } from "react-native-svg";
 import type { IconMeta } from "../constants/icons";
 import { Colors } from "../constants/theme";
 import { getIconByName } from "./IconRegistry";
@@ -21,12 +14,12 @@ interface IconCardProps {
 function PlayIcon({ color, size = 16 }: { color: string; size?: number }) {
   return (
     <Svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
       fill="none"
+      height={size}
       stroke={color}
       strokeWidth={1.5}
+      viewBox="0 0 24 24"
+      width={size}
     >
       <Path
         d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z"
@@ -40,34 +33,27 @@ function PlayIcon({ color, size = 16 }: { color: string; size?: number }) {
 function PauseIcon({ color, size = 16 }: { color: string; size?: number }) {
   return (
     <Svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
       fill="none"
+      height={size}
       stroke={color}
       strokeWidth={1.5}
+      viewBox="0 0 24 24"
+      width={size}
     >
-      <Path
-        d="M15.75 5.25v13.5m-7.5-13.5v13.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      <Path d="M15.75 5.25v13.5m-7.5-13.5v13.5" strokeLinecap="round" strokeLinejoin="round" />
     </Svg>
   );
 }
 
-function ClipboardDocumentIcon({
-  color,
-  size = 16,
-}: { color: string; size?: number }) {
+function ClipboardDocumentIcon({ color, size = 16 }: { color: string; size?: number }) {
   return (
     <Svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
       fill="none"
+      height={size}
       stroke={color}
       strokeWidth={1.5}
+      viewBox="0 0 24 24"
+      width={size}
     >
       <Path
         d="M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5A3.375 3.375 0 0 0 6.375 7.5H5.25m11.9-1.606c.013.163.02.329.02.497 0 .342-.017.68-.05 1.013m0 0a48.1 48.1 0 0 1-3.478.238h-1.284A48.1 48.1 0 0 1 9.37 7.404m0 0C8.61 7.371 7.856 7.325 7.106 7.267A2.227 2.227 0 0 1 5.25 5.046V4.286c0-.89.527-1.7 1.346-2.063a47.933 47.933 0 0 1 4.655-1.575l.157-.037a.75.75 0 0 1 .334 0l.157.037a47.933 47.933 0 0 1 4.655 1.575c.819.363 1.346 1.173 1.346 2.063v.76"
@@ -95,7 +81,9 @@ export function IconCard({ icon }: IconCardProps) {
     };
   }, []);
 
-  if (!IconComponent) return null;
+  if (!IconComponent) {
+    return null;
+  }
 
   const handlePress = useCallback(() => {
     if (isAnimating) {
@@ -122,11 +110,11 @@ export function IconCard({ icon }: IconCardProps) {
 
   return (
     <Pressable
-      onPress={handlePress}
-      onLongPress={handleLongPress}
-      accessibilityRole="button"
-      accessibilityLabel={`${icon.displayName} icon card`}
       accessibilityHint="Tap to preview animation. Long press to copy import statement."
+      accessibilityLabel={`${icon.displayName} icon card`}
+      accessibilityRole="button"
+      onLongPress={handleLongPress}
+      onPress={handlePress}
       style={({ pressed }) => [
         styles.card,
         {
@@ -140,20 +128,18 @@ export function IconCard({ icon }: IconCardProps) {
     >
       {/* Play/Pause button (touch devices) */}
       <Pressable
-        onPress={handlePress}
-        accessibilityRole="button"
         accessibilityLabel={isAnimating ? "Pause icon animation" : "Play icon animation"}
+        accessibilityRole="button"
         accessibilityState={{ selected: isAnimating }}
+        hitSlop={4}
+        onPress={handlePress}
         style={[
           styles.playButton,
           {
             backgroundColor:
-              colorScheme === "dark"
-                ? "rgba(38,38,38,0.2)"
-                : "rgba(229,229,229,0.2)",
+              colorScheme === "dark" ? "rgba(38,38,38,0.2)" : "rgba(229,229,229,0.2)",
           },
         ]}
-        hitSlop={4}
       >
         {isAnimating ? (
           <PauseIcon color={colors.icon} size={16} />
@@ -164,11 +150,13 @@ export function IconCard({ icon }: IconCardProps) {
 
       {/* Icon */}
       <View style={styles.iconContainer}>
-        <IconComponent ref={iconRef} size={40} color={colors.icon} controlled />
+        <IconComponent color={colors.icon} controlled ref={iconRef} size={40} />
       </View>
 
       {/* Label */}
       <Text
+        ellipsizeMode="tail"
+        numberOfLines={1}
         style={[
           styles.label,
           {
@@ -176,8 +164,6 @@ export function IconCard({ icon }: IconCardProps) {
             fontFamily: monoFont,
           },
         ]}
-        numberOfLines={1}
-        ellipsizeMode="tail"
       >
         {icon.name}
       </Text>
@@ -185,10 +171,10 @@ export function IconCard({ icon }: IconCardProps) {
       {/* Actions row */}
       <View style={styles.actionsRow}>
         <Pressable
-          onPress={handleLongPress}
-          accessibilityRole="button"
-          accessibilityLabel="Copy import statement"
           accessibilityHint="Copies icon import to clipboard"
+          accessibilityLabel="Copy import statement"
+          accessibilityRole="button"
+          onPress={handleLongPress}
           style={({ pressed }) => [
             styles.actionButton,
             {

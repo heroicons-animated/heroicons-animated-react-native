@@ -13,8 +13,7 @@ export const SITE = {
 } as const;
 
 export const LINK = {
-  GITHUB:
-    "https://github.com/heroicons-animated/heroicons-animated-react-native",
+  GITHUB: "https://github.com/heroicons-animated/heroicons-animated-react-native",
   SPONSOR: "https://github.com/sponsors/heroicons-animated",
   HEROICONS: "https://heroicons.com",
   REANIMATED: "https://docs.swmansion.com/react-native-reanimated/",

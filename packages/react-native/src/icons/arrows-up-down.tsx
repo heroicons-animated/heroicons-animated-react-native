@@ -19,8 +19,16 @@ const ArrowsUpDownIcon = forwardRef<ArrowsUpDownIconHandle, IconProps>(
     const g1TranslateY = useSharedValue(0);
 
     const startAnimation = useCallback(() => {
-      g0TranslateY.value = withSequence(withTiming(0, { duration: 167 }), withTiming(-2, { duration: 167 }), withTiming(0, { duration: 167 }));
-      g1TranslateY.value = withSequence(withTiming(0, { duration: 167 }), withTiming(2, { duration: 167 }), withTiming(0, { duration: 167 }));
+      g0TranslateY.value = withSequence(
+        withTiming(0, { duration: 167 }),
+        withTiming(-2, { duration: 167 }),
+        withTiming(0, { duration: 167 })
+      );
+      g1TranslateY.value = withSequence(
+        withTiming(0, { duration: 167 }),
+        withTiming(2, { duration: 167 }),
+        withTiming(0, { duration: 167 })
+      );
     }, [g0TranslateY, g1TranslateY]);
 
     const stopAnimation = useCallback(() => {
@@ -49,18 +57,30 @@ const ArrowsUpDownIcon = forwardRef<ArrowsUpDownIconHandle, IconProps>(
         onPressOut={stopAnimation}
       >
         <Animated.View style={style}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+          <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
             <AnimatedG animatedProps={g0Props}>
-              <Path d="M3 7.5 7.5 3m0 0L12 7.5M7.5 3v13.5" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M3 7.5 7.5 3m0 0L12 7.5M7.5 3v13.5"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={g1Props}>
-              <Path d="M21 16.5L16.5 21m0 0L12 16.5m4.5 4.5V7.5" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M21 16.5L16.5 21m0 0L12 16.5m4.5 4.5V7.5"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
           </Svg>
         </Animated.View>
       </IconWrapper>
     );
-  },
+  }
 );
 
 ArrowsUpDownIcon.displayName = "ArrowsUpDownIcon";

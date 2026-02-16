@@ -26,14 +26,38 @@ const SunIcon = forwardRef<SunIconHandle, IconProps>(
     const s7Opacity = useSharedValue(1);
 
     const startAnimation = useCallback(() => {
-      s0Opacity.value = withSequence(withTiming(0, { duration: 150 }), withTiming(1, { duration: 150 }));
-      s1Opacity.value = withDelay(100, withSequence(withTiming(0, { duration: 150 }), withTiming(1, { duration: 150 })));
-      s2Opacity.value = withDelay(200, withSequence(withTiming(0, { duration: 150 }), withTiming(1, { duration: 150 })));
-      s3Opacity.value = withDelay(300, withSequence(withTiming(0, { duration: 150 }), withTiming(1, { duration: 150 })));
-      s4Opacity.value = withDelay(400, withSequence(withTiming(0, { duration: 150 }), withTiming(1, { duration: 150 })));
-      s5Opacity.value = withDelay(500, withSequence(withTiming(0, { duration: 150 }), withTiming(1, { duration: 150 })));
-      s6Opacity.value = withDelay(600, withSequence(withTiming(0, { duration: 150 }), withTiming(1, { duration: 150 })));
-      s7Opacity.value = withDelay(700, withSequence(withTiming(0, { duration: 150 }), withTiming(1, { duration: 150 })));
+      s0Opacity.value = withSequence(
+        withTiming(0, { duration: 150 }),
+        withTiming(1, { duration: 150 })
+      );
+      s1Opacity.value = withDelay(
+        100,
+        withSequence(withTiming(0, { duration: 150 }), withTiming(1, { duration: 150 }))
+      );
+      s2Opacity.value = withDelay(
+        200,
+        withSequence(withTiming(0, { duration: 150 }), withTiming(1, { duration: 150 }))
+      );
+      s3Opacity.value = withDelay(
+        300,
+        withSequence(withTiming(0, { duration: 150 }), withTiming(1, { duration: 150 }))
+      );
+      s4Opacity.value = withDelay(
+        400,
+        withSequence(withTiming(0, { duration: 150 }), withTiming(1, { duration: 150 }))
+      );
+      s5Opacity.value = withDelay(
+        500,
+        withSequence(withTiming(0, { duration: 150 }), withTiming(1, { duration: 150 }))
+      );
+      s6Opacity.value = withDelay(
+        600,
+        withSequence(withTiming(0, { duration: 150 }), withTiming(1, { duration: 150 }))
+      );
+      s7Opacity.value = withDelay(
+        700,
+        withSequence(withTiming(0, { duration: 150 }), withTiming(1, { duration: 150 }))
+      );
     }, [s0Opacity, s1Opacity, s2Opacity, s3Opacity, s4Opacity, s5Opacity, s6Opacity, s7Opacity]);
 
     const stopAnimation = useCallback(() => {
@@ -92,37 +116,85 @@ const SunIcon = forwardRef<SunIconHandle, IconProps>(
         onPressOut={stopAnimation}
       >
         <Animated.View style={style}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+          <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
             <Circle cx="12" cy="12" r="3.75" stroke={color} strokeWidth={strokeWidth} />
             <AnimatedG animatedProps={s0Props}>
-              <Path d="M12 3V5.25" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M12 3V5.25"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={s1Props}>
-              <Path d="M18.364 5.63604L16.773 7.22703" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M18.364 5.63604L16.773 7.22703"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={s2Props}>
-              <Path d="M21 12H18.75" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M21 12H18.75"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={s3Props}>
-              <Path d="M18.364 18.364L16.773 16.773" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M18.364 18.364L16.773 16.773"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={s4Props}>
-              <Path d="M12 18.75V21" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M12 18.75V21"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={s5Props}>
-              <Path d="M7.22703 16.773L5.63604 18.364" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M7.22703 16.773L5.63604 18.364"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={s6Props}>
-              <Path d="M5.25 12H3" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M5.25 12H3"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={s7Props}>
-              <Path d="M7.22703 7.22703L5.63604 5.63604" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M7.22703 7.22703L5.63604 5.63604"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
           </Svg>
         </Animated.View>
       </IconWrapper>
     );
-  },
+  }
 );
 
 SunIcon.displayName = "SunIcon";

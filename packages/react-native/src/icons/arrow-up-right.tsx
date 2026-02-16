@@ -18,9 +18,21 @@ const ArrowUpRightIcon = forwardRef<ArrowUpRightIconHandle, IconProps>(
     const translateY = useSharedValue(0);
 
     const startAnimation = useCallback(() => {
-      scale.value = withSequence(withTiming(1, { duration: 167 }), withTiming(0.85, { duration: 167 }), withTiming(1, { duration: 167 }));
-      translateX.value = withSequence(withTiming(0, { duration: 167 }), withTiming(-4, { duration: 167 }), withTiming(0, { duration: 167 }));
-      translateY.value = withSequence(withTiming(0, { duration: 167 }), withTiming(4, { duration: 167 }), withTiming(0, { duration: 167 }));
+      scale.value = withSequence(
+        withTiming(1, { duration: 167 }),
+        withTiming(0.85, { duration: 167 }),
+        withTiming(1, { duration: 167 })
+      );
+      translateX.value = withSequence(
+        withTiming(0, { duration: 167 }),
+        withTiming(-4, { duration: 167 }),
+        withTiming(0, { duration: 167 })
+      );
+      translateY.value = withSequence(
+        withTiming(0, { duration: 167 }),
+        withTiming(4, { duration: 167 }),
+        withTiming(0, { duration: 167 })
+      );
     }, [scale, translateX, translateY]);
 
     const stopAnimation = useCallback(() => {
@@ -35,7 +47,11 @@ const ArrowUpRightIcon = forwardRef<ArrowUpRightIconHandle, IconProps>(
     }));
 
     const animatedStyle = useAnimatedStyle(() => ({
-      transform: [{ scale: scale.value }, { translateX: translateX.value }, { translateY: translateY.value }],
+      transform: [
+        { scale: scale.value },
+        { translateX: translateX.value },
+        { translateY: translateY.value },
+      ],
     }));
 
     return (
@@ -46,13 +62,19 @@ const ArrowUpRightIcon = forwardRef<ArrowUpRightIconHandle, IconProps>(
         onPressOut={stopAnimation}
       >
         <Animated.View style={[animatedStyle, style]}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-            <Path d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+          <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
+            <Path
+              d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
           </Svg>
         </Animated.View>
       </IconWrapper>
     );
-  },
+  }
 );
 
 ArrowUpRightIcon.displayName = "ArrowUpRightIcon";

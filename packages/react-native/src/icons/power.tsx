@@ -20,9 +20,22 @@ const PowerIcon = forwardRef<PowerIconHandle, IconProps>(
     const p1TranslateY = useSharedValue(0);
 
     const startAnimation = useCallback(() => {
-      p0Scale.value = withSequence(withTiming(1, { duration: 167 }), withTiming(1.05, { duration: 167 }), withTiming(1, { duration: 167 }));
-      p0Opacity.value = withSequence(withTiming(0.5, { duration: 125 }), withTiming(1, { duration: 125 }), withTiming(0.5, { duration: 125 }), withTiming(1, { duration: 125 }));
-      p1TranslateY.value = withSequence(withTiming(0, { duration: 100 }), withTiming(-2, { duration: 100 }), withTiming(0, { duration: 100 }));
+      p0Scale.value = withSequence(
+        withTiming(1, { duration: 167 }),
+        withTiming(1.05, { duration: 167 }),
+        withTiming(1, { duration: 167 })
+      );
+      p0Opacity.value = withSequence(
+        withTiming(0.5, { duration: 125 }),
+        withTiming(1, { duration: 125 }),
+        withTiming(0.5, { duration: 125 }),
+        withTiming(1, { duration: 125 })
+      );
+      p1TranslateY.value = withSequence(
+        withTiming(0, { duration: 100 }),
+        withTiming(-2, { duration: 100 }),
+        withTiming(0, { duration: 100 })
+      );
     }, [p0Scale, p0Opacity, p1TranslateY]);
 
     const stopAnimation = useCallback(() => {
@@ -53,18 +66,30 @@ const PowerIcon = forwardRef<PowerIconHandle, IconProps>(
         onPressOut={stopAnimation}
       >
         <Animated.View style={style}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+          <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
             <AnimatedG animatedProps={p0Props}>
-              <Path d="M5.636 5.636a9 9 0 1 0 12.728 0" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M5.636 5.636a9 9 0 1 0 12.728 0"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={p1Props}>
-              <Path d="M12 3v9" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M12 3v9"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
           </Svg>
         </Animated.View>
       </IconWrapper>
     );
-  },
+  }
 );
 
 PowerIcon.displayName = "PowerIcon";

@@ -1,9 +1,5 @@
 import { forwardRef, useCallback, useImperativeHandle } from "react";
-import Animated, {
-  useAnimatedStyle,
-  useSharedValue,
-  withSpring,
-} from "react-native-reanimated";
+import Animated, { useAnimatedStyle, useSharedValue, withSpring } from "react-native-reanimated";
 import Svg, { Path } from "react-native-svg";
 import { IconWrapper } from "../icon-wrapper";
 import type { IconHandle, IconProps } from "../types";
@@ -39,14 +35,26 @@ const H1Icon = forwardRef<H1IconHandle, IconProps>(
         onPressOut={stopAnimation}
       >
         <Animated.View style={[animatedStyle, style]}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-            <Path d="M2.243 4.493v7.5m0 0v7.502m0-7.501h10.5m0-7.5v7.5m0 0v7.501" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
-            <Path d="M17.244 10.868l2.25-1.5v10.126h-2.25m2.25 0h2.25" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+          <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
+            <Path
+              d="M2.243 4.493v7.5m0 0v7.502m0-7.501h10.5m0-7.5v7.5m0 0v7.501"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
+            <Path
+              d="M17.244 10.868l2.25-1.5v10.126h-2.25m2.25 0h2.25"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
           </Svg>
         </Animated.View>
       </IconWrapper>
     );
-  },
+  }
 );
 
 H1Icon.displayName = "H1Icon";

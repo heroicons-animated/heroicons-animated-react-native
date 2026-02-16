@@ -16,7 +16,11 @@ const StopIcon = forwardRef<StopIconHandle, IconProps>(
     const scale = useSharedValue(1);
 
     const startAnimation = useCallback(() => {
-      scale.value = withSequence(withTiming(1, { duration: 67 }), withTiming(0.9, { duration: 67 }), withTiming(1, { duration: 67 }));
+      scale.value = withSequence(
+        withTiming(1, { duration: 67 }),
+        withTiming(0.9, { duration: 67 }),
+        withTiming(1, { duration: 67 })
+      );
     }, [scale]);
 
     const stopAnimation = useCallback(() => {
@@ -40,13 +44,19 @@ const StopIcon = forwardRef<StopIconHandle, IconProps>(
         onPressOut={stopAnimation}
       >
         <Animated.View style={[animatedStyle, style]}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-            <Path d="M5.25 7.5A2.25 2.25 0 0 1 7.5 5.25h9a2.25 2.25 0 0 1 2.25 2.25v9a2.25 2.25 0 0 1-2.25 2.25h-9a2.25 2.25 0 0 1-2.25-2.25v-9Z" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+          <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
+            <Path
+              d="M5.25 7.5A2.25 2.25 0 0 1 7.5 5.25h9a2.25 2.25 0 0 1 2.25 2.25v9a2.25 2.25 0 0 1-2.25 2.25h-9a2.25 2.25 0 0 1-2.25-2.25v-9Z"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
           </Svg>
         </Animated.View>
       </IconWrapper>
     );
-  },
+  }
 );
 
 StopIcon.displayName = "StopIcon";

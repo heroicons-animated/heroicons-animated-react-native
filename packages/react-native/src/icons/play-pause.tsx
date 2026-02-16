@@ -17,8 +17,18 @@ const PlayPauseIcon = forwardRef<PlayPauseIconHandle, IconProps>(
     const translateX = useSharedValue(0);
 
     const startAnimation = useCallback(() => {
-      rotate.value = withSequence(withTiming(0, { duration: 125 }), withTiming(-10, { duration: 125 }), withTiming(0, { duration: 125 }), withTiming(0, { duration: 125 }));
-      translateX.value = withSequence(withTiming(0, { duration: 125 }), withTiming(-1, { duration: 125 }), withTiming(2, { duration: 125 }), withTiming(0, { duration: 125 }));
+      rotate.value = withSequence(
+        withTiming(0, { duration: 125 }),
+        withTiming(-10, { duration: 125 }),
+        withTiming(0, { duration: 125 }),
+        withTiming(0, { duration: 125 })
+      );
+      translateX.value = withSequence(
+        withTiming(0, { duration: 125 }),
+        withTiming(-1, { duration: 125 }),
+        withTiming(2, { duration: 125 }),
+        withTiming(0, { duration: 125 })
+      );
     }, [rotate, translateX]);
 
     const stopAnimation = useCallback(() => {
@@ -43,13 +53,19 @@ const PlayPauseIcon = forwardRef<PlayPauseIconHandle, IconProps>(
         onPressOut={stopAnimation}
       >
         <Animated.View style={[animatedStyle, style]}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-            <Path d="M21 7.5V18M15 7.5V18M3 16.811V8.69c0-.864.933-1.406 1.683-.977l7.108 4.061a1.125 1.125 0 0 1 0 1.954l-7.108 4.061A1.125 1.125 0 0 1 3 16.811Z" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+          <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
+            <Path
+              d="M21 7.5V18M15 7.5V18M3 16.811V8.69c0-.864.933-1.406 1.683-.977l7.108 4.061a1.125 1.125 0 0 1 0 1.954l-7.108 4.061A1.125 1.125 0 0 1 3 16.811Z"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
           </Svg>
         </Animated.View>
       </IconWrapper>
     );
-  },
+  }
 );
 
 PlayPauseIcon.displayName = "PlayPauseIcon";

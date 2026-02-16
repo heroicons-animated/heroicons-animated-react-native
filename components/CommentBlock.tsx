@@ -1,29 +1,18 @@
 import { useCallback } from "react";
-import {
-  Linking,
-  Platform,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-  useColorScheme,
-} from "react-native";
+import { Linking, Platform, Pressable, StyleSheet, Text, useColorScheme, View } from "react-native";
 import Svg, { Path } from "react-native-svg";
-import { Colors } from "../constants/theme";
 import { LINK } from "../constants/site";
+import { Colors } from "../constants/theme";
 
-function ArrowTopRightIcon({
-  color,
-  size = 14,
-}: { color: string; size?: number }) {
+function ArrowTopRightIcon({ color, size = 14 }: { color: string; size?: number }) {
   return (
     <Svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
       fill="none"
+      height={size}
       stroke={color}
       strokeWidth={1.5}
+      viewBox="0 0 24 24"
+      width={size}
     >
       <Path
         d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
@@ -45,12 +34,7 @@ export function CommentBlock() {
   return (
     <View style={styles.container}>
       {/* Left accent bar */}
-      <View
-        style={[
-          styles.accentBar,
-          { backgroundColor: "rgba(163,163,163,0.5)" },
-        ]}
-      />
+      <View style={[styles.accentBar, { backgroundColor: "rgba(163,163,163,0.5)" }]} />
 
       <View style={styles.content}>
         {/* Quote */}
@@ -65,43 +49,38 @@ export function CommentBlock() {
         >
           {"\u201C"}these icons were heavily inspired from the work of{" "}
           <Text
-            style={styles.quoteLink}
-            onPress={() => openExternal(LINK.LUCIDE_ANIMATED)}
-            accessibilityRole="link"
             accessibilityLabel="Open lucide-animated website"
+            accessibilityRole="link"
+            onPress={() => openExternal(LINK.LUCIDE_ANIMATED)}
+            style={styles.quoteLink}
           >
             lucide-animated by dmytro
-          </Text>
-          {" "}and what i learned from the{" "}
+          </Text>{" "}
+          and what i learned from the{" "}
           <Text
-            style={styles.quoteLink}
-            onPress={() => openExternal(LINK.ANIMATIONS_DEV)}
-            accessibilityRole="link"
             accessibilityLabel="Open animations.dev website"
+            accessibilityRole="link"
+            onPress={() => openExternal(LINK.ANIMATIONS_DEV)}
+            style={styles.quoteLink}
           >
             animations.dev
-          </Text>
-          {" "}course.{"\u201D"}
+          </Text>{" "}
+          course.{"\u201D"}
         </Text>
 
         {/* Author row */}
-        <View
-          style={[styles.authorRow, { borderTopColor: colors.border }]}
-        >
+        <View style={[styles.authorRow, { borderTopColor: colors.border }]}>
           <View style={styles.authorInfo}>
             {/* Avatar placeholder */}
             <View
               style={[
                 styles.avatar,
                 {
-                  backgroundColor:
-                    colorScheme === "dark" ? "#262626" : "#e5e5e5",
+                  backgroundColor: colorScheme === "dark" ? "#262626" : "#e5e5e5",
                 },
               ]}
             >
-              <Text style={[styles.avatarText, { fontFamily: sansFont }]}>
-                AP
-              </Text>
+              <Text style={[styles.avatarText, { fontFamily: sansFont }]}>AP</Text>
             </View>
             <Text
               style={[
@@ -112,10 +91,10 @@ export function CommentBlock() {
               ]}
             >
               <Text
-                style={styles.authorLink}
-                onPress={() => openExternal(LINK.ANIKET)}
-                accessibilityRole="link"
                 accessibilityLabel="Open aniketpawar.com"
+                accessibilityRole="link"
+                onPress={() => openExternal(LINK.ANIKET)}
+                style={styles.authorLink}
               >
                 aniket
               </Text>
@@ -125,24 +104,18 @@ export function CommentBlock() {
 
           {/* Take the course button */}
           <Pressable
-            onPress={() => openExternal(LINK.ANIMATIONS_DEV)}
-            accessibilityRole="button"
-            accessibilityLabel="Take the course"
             accessibilityHint="Opens animations.dev"
+            accessibilityLabel="Take the course"
+            accessibilityRole="button"
+            onPress={() => openExternal(LINK.ANIMATIONS_DEV)}
             style={({ pressed }) => [
               styles.courseButton,
               {
-                backgroundColor: pressed
-                  ? "#7c3aed"
-                  : colors.primary,
+                backgroundColor: pressed ? "#7c3aed" : colors.primary,
               },
             ]}
           >
-            <Text
-              style={[styles.courseButtonText, { fontFamily: sansFont }]}
-            >
-              Take the course
-            </Text>
+            <Text style={[styles.courseButtonText, { fontFamily: sansFont }]}>Take the course</Text>
             <ArrowTopRightIcon color="#ffffff" size={14} />
           </Pressable>
         </View>

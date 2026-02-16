@@ -17,8 +17,14 @@ const MagnifyingGlassPlusIcon = forwardRef<MagnifyingGlassPlusIconHandle, IconPr
     const scale = useSharedValue(1);
 
     const startAnimation = useCallback(() => {
-      opacity.value = withSequence(withTiming(0, { duration: 200 }), withTiming(1, { duration: 200 }));
-      scale.value = withSequence(withTiming(0.5, { duration: 200 }), withTiming(1, { duration: 200 }));
+      opacity.value = withSequence(
+        withTiming(0, { duration: 200 }),
+        withTiming(1, { duration: 200 })
+      );
+      scale.value = withSequence(
+        withTiming(0.5, { duration: 200 }),
+        withTiming(1, { duration: 200 })
+      );
     }, [opacity, scale]);
 
     const stopAnimation = useCallback(() => {
@@ -44,15 +50,33 @@ const MagnifyingGlassPlusIcon = forwardRef<MagnifyingGlassPlusIconHandle, IconPr
         onPressOut={stopAnimation}
       >
         <Animated.View style={[animatedStyle, style]}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-            <Path d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
-            <Path d="M10.5 7.5v6" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
-            <Path d="M7.5 10.5h6" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+          <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
+            <Path
+              d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
+            <Path
+              d="M10.5 7.5v6"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
+            <Path
+              d="M7.5 10.5h6"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
           </Svg>
         </Animated.View>
       </IconWrapper>
     );
-  },
+  }
 );
 
 MagnifyingGlassPlusIcon.displayName = "MagnifyingGlassPlusIcon";

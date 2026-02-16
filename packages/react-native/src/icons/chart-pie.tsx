@@ -1,9 +1,5 @@
 import { forwardRef, useCallback, useImperativeHandle } from "react";
-import Animated, {
-  useAnimatedStyle,
-  useSharedValue,
-  withTiming,
-} from "react-native-reanimated";
+import Animated, { useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
 import Svg, { Path } from "react-native-svg";
 import { IconWrapper } from "../icon-wrapper";
 import type { IconHandle, IconProps } from "../types";
@@ -42,14 +38,26 @@ const ChartPieIcon = forwardRef<ChartPieIconHandle, IconProps>(
         onPressOut={stopAnimation}
       >
         <Animated.View style={[animatedStyle, style]}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-            <Path d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
-            <Path d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+          <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
+            <Path
+              d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
+            <Path
+              d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
           </Svg>
         </Animated.View>
       </IconWrapper>
     );
-  },
+  }
 );
 
 ChartPieIcon.displayName = "ChartPieIcon";

@@ -1,11 +1,4 @@
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-  useColorScheme,
-} from "react-native";
+import { Platform, StyleSheet, Text, TextInput, useColorScheme, View } from "react-native";
 import Svg, { Path } from "react-native-svg";
 import { Colors } from "../constants/theme";
 
@@ -16,19 +9,9 @@ interface SearchBarProps {
   totalCount: number;
 }
 
-function MagnifyingGlassIcon({
-  color,
-  size = 20,
-}: { color: string; size?: number }) {
+function MagnifyingGlassIcon({ color, size = 20 }: { color: string; size?: number }) {
   return (
-    <Svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke={color}
-      strokeWidth={2}
-    >
+    <Svg fill="none" height={size} stroke={color} strokeWidth={2} viewBox="0 0 24 24" width={size}>
       <Path
         d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
         strokeLinecap="round"
@@ -38,12 +21,7 @@ function MagnifyingGlassIcon({
   );
 }
 
-export function SearchBar({
-  value,
-  onChangeText,
-  resultCount,
-  totalCount,
-}: SearchBarProps) {
+export function SearchBar({ value, onChangeText, resultCount, totalCount }: SearchBarProps) {
   const colorScheme = useColorScheme() ?? "light";
   const colors = Colors[colorScheme];
   const isFiltering = value.trim().length > 0;
@@ -56,10 +34,7 @@ export function SearchBar({
         {
           borderTopColor: colors.border,
           borderBottomColor: colors.border,
-          backgroundColor:
-            colorScheme === "dark"
-              ? "rgba(23,23,23,0.8)"
-              : "rgba(245,245,245,0.8)",
+          backgroundColor: colorScheme === "dark" ? "rgba(23,23,23,0.8)" : "rgba(245,245,245,0.8)",
         },
       ]}
     >
@@ -67,8 +42,7 @@ export function SearchBar({
         style={[
           styles.container,
           {
-            backgroundColor:
-              colorScheme === "dark" ? "#0a0a0a" : "#ffffff",
+            backgroundColor: colorScheme === "dark" ? "#0a0a0a" : "#ffffff",
           },
         ]}
       >
@@ -76,6 +50,16 @@ export function SearchBar({
           <MagnifyingGlassIcon color="#a3a3a3" size={20} />
         </View>
         <TextInput
+          accessibilityHint="Type to filter the icon list"
+          accessibilityLabel="Search icons"
+          accessibilityRole="search"
+          autoCapitalize="none"
+          autoCorrect={false}
+          clearButtonMode="while-editing"
+          onChangeText={onChangeText}
+          placeholder="Search icons..."
+          placeholderTextColor="#a3a3a3"
+          returnKeyType="search"
           style={[
             styles.input,
             {
@@ -83,17 +67,7 @@ export function SearchBar({
               fontFamily: monoFont,
             },
           ]}
-          placeholder="Search icons..."
-          placeholderTextColor="#a3a3a3"
           value={value}
-          onChangeText={onChangeText}
-          autoCapitalize="none"
-          autoCorrect={false}
-          clearButtonMode="while-editing"
-          accessibilityLabel="Search icons"
-          accessibilityHint="Type to filter the icon list"
-          accessibilityRole="search"
-          returnKeyType="search"
         />
         <Text
           style={[

@@ -17,8 +17,16 @@ const ArrowDownLeftIcon = forwardRef<ArrowDownLeftIconHandle, IconProps>(
     const translateY = useSharedValue(0);
 
     const startAnimation = useCallback(() => {
-      translateX.value = withSequence(withTiming(0, { duration: 167 }), withTiming(3, { duration: 167 }), withTiming(0, { duration: 167 }));
-      translateY.value = withSequence(withTiming(0, { duration: 167 }), withTiming(-3, { duration: 167 }), withTiming(0, { duration: 167 }));
+      translateX.value = withSequence(
+        withTiming(0, { duration: 167 }),
+        withTiming(3, { duration: 167 }),
+        withTiming(0, { duration: 167 })
+      );
+      translateY.value = withSequence(
+        withTiming(0, { duration: 167 }),
+        withTiming(-3, { duration: 167 }),
+        withTiming(0, { duration: 167 })
+      );
     }, [translateX, translateY]);
 
     const stopAnimation = useCallback(() => {
@@ -43,13 +51,19 @@ const ArrowDownLeftIcon = forwardRef<ArrowDownLeftIconHandle, IconProps>(
         onPressOut={stopAnimation}
       >
         <Animated.View style={[animatedStyle, style]}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-            <Path d="m19.5 4.5-15 15m0 0h11.25m-11.25 0V8.25" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+          <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
+            <Path
+              d="m19.5 4.5-15 15m0 0h11.25m-11.25 0V8.25"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
           </Svg>
         </Animated.View>
       </IconWrapper>
     );
-  },
+  }
 );
 
 ArrowDownLeftIcon.displayName = "ArrowDownLeftIcon";

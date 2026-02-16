@@ -16,7 +16,11 @@ const BarsArrowUpIcon = forwardRef<BarsArrowUpIconHandle, IconProps>(
     const translateY = useSharedValue(0);
 
     const startAnimation = useCallback(() => {
-      translateY.value = withSequence(withTiming(0, { duration: 167 }), withTiming(-2, { duration: 167 }), withTiming(0, { duration: 167 }));
+      translateY.value = withSequence(
+        withTiming(0, { duration: 167 }),
+        withTiming(-2, { duration: 167 }),
+        withTiming(0, { duration: 167 })
+      );
     }, [translateY]);
 
     const stopAnimation = useCallback(() => {
@@ -40,14 +44,26 @@ const BarsArrowUpIcon = forwardRef<BarsArrowUpIconHandle, IconProps>(
         onPressOut={stopAnimation}
       >
         <Animated.View style={[animatedStyle, style]}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-            <Path d="M3 4.5h14.25M3 9h9.75M3 13.5h5.25" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
-            <Path d="M13.5 12.75L17.25 9L21 12.75M17.25 9v12" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+          <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
+            <Path
+              d="M3 4.5h14.25M3 9h9.75M3 13.5h5.25"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
+            <Path
+              d="M13.5 12.75L17.25 9L21 12.75M17.25 9v12"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
           </Svg>
         </Animated.View>
       </IconWrapper>
     );
-  },
+  }
 );
 
 BarsArrowUpIcon.displayName = "BarsArrowUpIcon";

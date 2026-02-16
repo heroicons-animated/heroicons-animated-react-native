@@ -1,3 +1,4 @@
+import * as Clipboard from "expo-clipboard";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
   Platform,
@@ -5,27 +6,22 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  View,
   useColorScheme,
+  View,
 } from "react-native";
-import * as Clipboard from "expo-clipboard";
 import Svg, { Path } from "react-native-svg";
+import { getInstallCommand, PACKAGE_MANAGERS, type PackageManager } from "../constants/site";
 import { Colors } from "../constants/theme";
-import {
-  type PackageManager,
-  PACKAGE_MANAGERS,
-  getInstallCommand,
-} from "../constants/site";
 
 function ClipboardIcon({ color, size = 16 }: { color: string; size?: number }) {
   return (
     <Svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
       fill="none"
+      height={size}
       stroke={color}
       strokeWidth={1.5}
+      viewBox="0 0 24 24"
+      width={size}
     >
       <Path
         d="M15.666 3.888A2.25 2.25 0 0 0 13.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 0 1-.75.75H9.75a.75.75 0 0 1-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 0 1 1.927-.184"
@@ -38,19 +34,8 @@ function ClipboardIcon({ color, size = 16 }: { color: string; size?: number }) {
 
 function CheckIcon({ color, size = 16 }: { color: string; size?: number }) {
   return (
-    <Svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke={color}
-      strokeWidth={2}
-    >
-      <Path
-        d="m4.5 12.75 6 6 9-13.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+    <Svg fill="none" height={size} stroke={color} strokeWidth={2} viewBox="0 0 24 24" width={size}>
+      <Path d="m4.5 12.75 6 6 9-13.5" strokeLinecap="round" strokeLinejoin="round" />
     </Svg>
   );
 }
@@ -93,11 +78,11 @@ export function CliBlock() {
 
           return (
             <Pressable
+              accessibilityLabel={`Use ${pm} install command`}
+              accessibilityRole="tab"
+              accessibilityState={{ selected: isSelected }}
               key={pm}
               onPress={() => setSelectedPM(pm)}
-              accessibilityRole="tab"
-              accessibilityLabel={`Use ${pm} install command`}
-              accessibilityState={{ selected: isSelected }}
               style={[
                 styles.tab,
                 {
@@ -115,11 +100,7 @@ export function CliBlock() {
                 style={[
                   styles.tabText,
                   {
-                    color: isSelected
-                      ? "#ffffff"
-                      : colorScheme === "dark"
-                        ? "#ffffff"
-                        : "#000000",
+                    color: isSelected ? "#ffffff" : colorScheme === "dark" ? "#ffffff" : "#000000",
                     fontFamily: monoFont,
                   },
                 ]}
@@ -136,24 +117,16 @@ export function CliBlock() {
         style={[
           styles.commandRow,
           {
-            backgroundColor:
-              colorScheme === "dark"
-                ? "rgba(255,255,255,0.1)"
-                : "#ffffff",
+            backgroundColor: colorScheme === "dark" ? "rgba(255,255,255,0.1)" : "#ffffff",
           },
         ]}
       >
         <ScrollView
+          contentContainerStyle={styles.commandScroll}
           horizontal
           showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.commandScroll}
         >
-          <Text
-            style={[
-              styles.commandText,
-              { fontFamily: monoFont },
-            ]}
-          >
+          <Text style={[styles.commandText, { fontFamily: monoFont }]}>
             <Text
               style={{
                 color: colorScheme === "dark" ? "#a3a3a3" : "#525252",
@@ -174,18 +147,16 @@ export function CliBlock() {
             >
               {selectedPM === "npm" ? " install " : " add "}
             </Text>
-            <Text style={{ color: colors.primary }}>
-              @heroicons-animated/react-native
-            </Text>
+            <Text style={{ color: colors.primary }}>@heroicons-animated/react-native</Text>
           </Text>
         </ScrollView>
 
         {/* Copy button */}
         <Pressable
-          onPress={handleCopy}
-          accessibilityRole="button"
-          accessibilityLabel="Copy install command"
           accessibilityHint="Copies the selected package manager command"
+          accessibilityLabel="Copy install command"
+          accessibilityRole="button"
+          onPress={handleCopy}
           style={({ pressed }) => [
             styles.copyButton,
             {
@@ -200,10 +171,7 @@ export function CliBlock() {
           {copied ? (
             <CheckIcon color="#22c55e" size={16} />
           ) : (
-            <ClipboardIcon
-              color={colorScheme === "dark" ? "#ffffff" : "#000000"}
-              size={16}
-            />
+            <ClipboardIcon color={colorScheme === "dark" ? "#ffffff" : "#000000"} size={16} />
           )}
         </Pressable>
       </View>

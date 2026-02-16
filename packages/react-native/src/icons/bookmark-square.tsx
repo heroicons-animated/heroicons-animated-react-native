@@ -17,8 +17,20 @@ const BookmarkSquareIcon = forwardRef<BookmarkSquareIconHandle, IconProps>(
     const scaleY = useSharedValue(1);
 
     const startAnimation = useCallback(() => {
-      scaleX.value = withSequence(withTiming(1, { duration: 120 }), withTiming(0.9, { duration: 120 }), withTiming(1.1, { duration: 120 }), withTiming(0.95, { duration: 120 }), withTiming(1, { duration: 120 }));
-      scaleY.value = withSequence(withTiming(1, { duration: 120 }), withTiming(1.3, { duration: 120 }), withTiming(0.9, { duration: 120 }), withTiming(1.05, { duration: 120 }), withTiming(1, { duration: 120 }));
+      scaleX.value = withSequence(
+        withTiming(1, { duration: 120 }),
+        withTiming(0.9, { duration: 120 }),
+        withTiming(1.1, { duration: 120 }),
+        withTiming(0.95, { duration: 120 }),
+        withTiming(1, { duration: 120 })
+      );
+      scaleY.value = withSequence(
+        withTiming(1, { duration: 120 }),
+        withTiming(1.3, { duration: 120 }),
+        withTiming(0.9, { duration: 120 }),
+        withTiming(1.05, { duration: 120 }),
+        withTiming(1, { duration: 120 })
+      );
     }, [scaleX, scaleY]);
 
     const stopAnimation = useCallback(() => {
@@ -43,13 +55,19 @@ const BookmarkSquareIcon = forwardRef<BookmarkSquareIconHandle, IconProps>(
         onPressOut={stopAnimation}
       >
         <Animated.View style={[animatedStyle, style]}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-            <Path d="M16.5 3.75V16.5L12 14.25 7.5 16.5V3.75m9 0H18A2.25 2.25 0 0 1 20.25 6v12A2.25 2.25 0 0 1 18 20.25H6A2.25 2.25 0 0 1 3.75 18V6A2.25 2.25 0 0 1 6 3.75h1.5m9 0h-9" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+          <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
+            <Path
+              d="M16.5 3.75V16.5L12 14.25 7.5 16.5V3.75m9 0H18A2.25 2.25 0 0 1 20.25 6v12A2.25 2.25 0 0 1 18 20.25H6A2.25 2.25 0 0 1 3.75 18V6A2.25 2.25 0 0 1 6 3.75h1.5m9 0h-9"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
           </Svg>
         </Animated.View>
       </IconWrapper>
     );
-  },
+  }
 );
 
 BookmarkSquareIcon.displayName = "BookmarkSquareIcon";

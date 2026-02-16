@@ -41,31 +41,152 @@ const CpuChipIcon = forwardRef<CpuChipIconHandle, IconProps>(
     const p11Opacity = useSharedValue(1);
 
     const startAnimation = useCallback(() => {
-      p0ScaleY.value = withSequence(withTiming(1, { duration: 133 }), withTiming(1.5, { duration: 133 }), withTiming(1, { duration: 133 }));
-      p0Opacity.value = withSequence(withTiming(1, { duration: 133 }), withTiming(0.8, { duration: 133 }), withTiming(1, { duration: 133 }));
-      p1ScaleY.value = withSequence(withTiming(1, { duration: 133 }), withTiming(1.5, { duration: 133 }), withTiming(1, { duration: 133 }));
-      p1Opacity.value = withSequence(withTiming(1, { duration: 133 }), withTiming(0.8, { duration: 133 }), withTiming(1, { duration: 133 }));
-      p2ScaleY.value = withSequence(withTiming(1, { duration: 133 }), withTiming(1.5, { duration: 133 }), withTiming(1, { duration: 133 }));
-      p2Opacity.value = withSequence(withTiming(1, { duration: 133 }), withTiming(0.8, { duration: 133 }), withTiming(1, { duration: 133 }));
-      p3ScaleX.value = withSequence(withTiming(1, { duration: 133 }), withTiming(1.5, { duration: 133 }), withTiming(1, { duration: 133 }));
-      p3Opacity.value = withSequence(withTiming(1, { duration: 133 }), withTiming(0.8, { duration: 133 }), withTiming(1, { duration: 133 }));
-      p4ScaleX.value = withSequence(withTiming(1, { duration: 133 }), withTiming(1.5, { duration: 133 }), withTiming(1, { duration: 133 }));
-      p4Opacity.value = withSequence(withTiming(1, { duration: 133 }), withTiming(0.8, { duration: 133 }), withTiming(1, { duration: 133 }));
-      p5ScaleX.value = withSequence(withTiming(1, { duration: 133 }), withTiming(1.5, { duration: 133 }), withTiming(1, { duration: 133 }));
-      p5Opacity.value = withSequence(withTiming(1, { duration: 133 }), withTiming(0.8, { duration: 133 }), withTiming(1, { duration: 133 }));
-      p6ScaleX.value = withSequence(withTiming(1, { duration: 133 }), withTiming(1.5, { duration: 133 }), withTiming(1, { duration: 133 }));
-      p6Opacity.value = withSequence(withTiming(1, { duration: 133 }), withTiming(0.8, { duration: 133 }), withTiming(1, { duration: 133 }));
-      p7ScaleX.value = withSequence(withTiming(1, { duration: 133 }), withTiming(1.5, { duration: 133 }), withTiming(1, { duration: 133 }));
-      p7Opacity.value = withSequence(withTiming(1, { duration: 133 }), withTiming(0.8, { duration: 133 }), withTiming(1, { duration: 133 }));
-      p8ScaleX.value = withSequence(withTiming(1, { duration: 133 }), withTiming(1.5, { duration: 133 }), withTiming(1, { duration: 133 }));
-      p8Opacity.value = withSequence(withTiming(1, { duration: 133 }), withTiming(0.8, { duration: 133 }), withTiming(1, { duration: 133 }));
-      p9ScaleY.value = withSequence(withTiming(1, { duration: 133 }), withTiming(1.5, { duration: 133 }), withTiming(1, { duration: 133 }));
-      p9Opacity.value = withSequence(withTiming(1, { duration: 133 }), withTiming(0.8, { duration: 133 }), withTiming(1, { duration: 133 }));
-      p10ScaleY.value = withSequence(withTiming(1, { duration: 133 }), withTiming(1.5, { duration: 133 }), withTiming(1, { duration: 133 }));
-      p10Opacity.value = withSequence(withTiming(1, { duration: 133 }), withTiming(0.8, { duration: 133 }), withTiming(1, { duration: 133 }));
-      p11ScaleY.value = withSequence(withTiming(1, { duration: 133 }), withTiming(1.5, { duration: 133 }), withTiming(1, { duration: 133 }));
-      p11Opacity.value = withSequence(withTiming(1, { duration: 133 }), withTiming(0.8, { duration: 133 }), withTiming(1, { duration: 133 }));
-    }, [p0ScaleY, p0Opacity, p1ScaleY, p1Opacity, p2ScaleY, p2Opacity, p3ScaleX, p3Opacity, p4ScaleX, p4Opacity, p5ScaleX, p5Opacity, p6ScaleX, p6Opacity, p7ScaleX, p7Opacity, p8ScaleX, p8Opacity, p9ScaleY, p9Opacity, p10ScaleY, p10Opacity, p11ScaleY, p11Opacity]);
+      p0ScaleY.value = withSequence(
+        withTiming(1, { duration: 133 }),
+        withTiming(1.5, { duration: 133 }),
+        withTiming(1, { duration: 133 })
+      );
+      p0Opacity.value = withSequence(
+        withTiming(1, { duration: 133 }),
+        withTiming(0.8, { duration: 133 }),
+        withTiming(1, { duration: 133 })
+      );
+      p1ScaleY.value = withSequence(
+        withTiming(1, { duration: 133 }),
+        withTiming(1.5, { duration: 133 }),
+        withTiming(1, { duration: 133 })
+      );
+      p1Opacity.value = withSequence(
+        withTiming(1, { duration: 133 }),
+        withTiming(0.8, { duration: 133 }),
+        withTiming(1, { duration: 133 })
+      );
+      p2ScaleY.value = withSequence(
+        withTiming(1, { duration: 133 }),
+        withTiming(1.5, { duration: 133 }),
+        withTiming(1, { duration: 133 })
+      );
+      p2Opacity.value = withSequence(
+        withTiming(1, { duration: 133 }),
+        withTiming(0.8, { duration: 133 }),
+        withTiming(1, { duration: 133 })
+      );
+      p3ScaleX.value = withSequence(
+        withTiming(1, { duration: 133 }),
+        withTiming(1.5, { duration: 133 }),
+        withTiming(1, { duration: 133 })
+      );
+      p3Opacity.value = withSequence(
+        withTiming(1, { duration: 133 }),
+        withTiming(0.8, { duration: 133 }),
+        withTiming(1, { duration: 133 })
+      );
+      p4ScaleX.value = withSequence(
+        withTiming(1, { duration: 133 }),
+        withTiming(1.5, { duration: 133 }),
+        withTiming(1, { duration: 133 })
+      );
+      p4Opacity.value = withSequence(
+        withTiming(1, { duration: 133 }),
+        withTiming(0.8, { duration: 133 }),
+        withTiming(1, { duration: 133 })
+      );
+      p5ScaleX.value = withSequence(
+        withTiming(1, { duration: 133 }),
+        withTiming(1.5, { duration: 133 }),
+        withTiming(1, { duration: 133 })
+      );
+      p5Opacity.value = withSequence(
+        withTiming(1, { duration: 133 }),
+        withTiming(0.8, { duration: 133 }),
+        withTiming(1, { duration: 133 })
+      );
+      p6ScaleX.value = withSequence(
+        withTiming(1, { duration: 133 }),
+        withTiming(1.5, { duration: 133 }),
+        withTiming(1, { duration: 133 })
+      );
+      p6Opacity.value = withSequence(
+        withTiming(1, { duration: 133 }),
+        withTiming(0.8, { duration: 133 }),
+        withTiming(1, { duration: 133 })
+      );
+      p7ScaleX.value = withSequence(
+        withTiming(1, { duration: 133 }),
+        withTiming(1.5, { duration: 133 }),
+        withTiming(1, { duration: 133 })
+      );
+      p7Opacity.value = withSequence(
+        withTiming(1, { duration: 133 }),
+        withTiming(0.8, { duration: 133 }),
+        withTiming(1, { duration: 133 })
+      );
+      p8ScaleX.value = withSequence(
+        withTiming(1, { duration: 133 }),
+        withTiming(1.5, { duration: 133 }),
+        withTiming(1, { duration: 133 })
+      );
+      p8Opacity.value = withSequence(
+        withTiming(1, { duration: 133 }),
+        withTiming(0.8, { duration: 133 }),
+        withTiming(1, { duration: 133 })
+      );
+      p9ScaleY.value = withSequence(
+        withTiming(1, { duration: 133 }),
+        withTiming(1.5, { duration: 133 }),
+        withTiming(1, { duration: 133 })
+      );
+      p9Opacity.value = withSequence(
+        withTiming(1, { duration: 133 }),
+        withTiming(0.8, { duration: 133 }),
+        withTiming(1, { duration: 133 })
+      );
+      p10ScaleY.value = withSequence(
+        withTiming(1, { duration: 133 }),
+        withTiming(1.5, { duration: 133 }),
+        withTiming(1, { duration: 133 })
+      );
+      p10Opacity.value = withSequence(
+        withTiming(1, { duration: 133 }),
+        withTiming(0.8, { duration: 133 }),
+        withTiming(1, { duration: 133 })
+      );
+      p11ScaleY.value = withSequence(
+        withTiming(1, { duration: 133 }),
+        withTiming(1.5, { duration: 133 }),
+        withTiming(1, { duration: 133 })
+      );
+      p11Opacity.value = withSequence(
+        withTiming(1, { duration: 133 }),
+        withTiming(0.8, { duration: 133 }),
+        withTiming(1, { duration: 133 })
+      );
+    }, [
+      p0ScaleY,
+      p0Opacity,
+      p1ScaleY,
+      p1Opacity,
+      p2ScaleY,
+      p2Opacity,
+      p3ScaleX,
+      p3Opacity,
+      p4ScaleX,
+      p4Opacity,
+      p5ScaleX,
+      p5Opacity,
+      p6ScaleX,
+      p6Opacity,
+      p7ScaleX,
+      p7Opacity,
+      p8ScaleX,
+      p8Opacity,
+      p9ScaleY,
+      p9Opacity,
+      p10ScaleY,
+      p10Opacity,
+      p11ScaleY,
+      p11Opacity,
+    ]);
 
     const stopAnimation = useCallback(() => {
       p0ScaleY.value = withTiming(1, { duration: 200 });
@@ -92,7 +213,32 @@ const CpuChipIcon = forwardRef<CpuChipIconHandle, IconProps>(
       p10Opacity.value = withTiming(1, { duration: 200 });
       p11ScaleY.value = withTiming(1, { duration: 200 });
       p11Opacity.value = withTiming(1, { duration: 200 });
-    }, [p0ScaleY, p0Opacity, p1ScaleY, p1Opacity, p2ScaleY, p2Opacity, p3ScaleX, p3Opacity, p4ScaleX, p4Opacity, p5ScaleX, p5Opacity, p6ScaleX, p6Opacity, p7ScaleX, p7Opacity, p8ScaleX, p8Opacity, p9ScaleY, p9Opacity, p10ScaleY, p10Opacity, p11ScaleY, p11Opacity]);
+    }, [
+      p0ScaleY,
+      p0Opacity,
+      p1ScaleY,
+      p1Opacity,
+      p2ScaleY,
+      p2Opacity,
+      p3ScaleX,
+      p3Opacity,
+      p4ScaleX,
+      p4Opacity,
+      p5ScaleX,
+      p5Opacity,
+      p6ScaleX,
+      p6Opacity,
+      p7ScaleX,
+      p7Opacity,
+      p8ScaleX,
+      p8Opacity,
+      p9ScaleY,
+      p9Opacity,
+      p10ScaleY,
+      p10Opacity,
+      p11ScaleY,
+      p11Opacity,
+    ]);
 
     useImperativeHandle(ref, () => ({
       startAnimation,
@@ -167,49 +313,127 @@ const CpuChipIcon = forwardRef<CpuChipIconHandle, IconProps>(
         onPressOut={stopAnimation}
       >
         <Animated.View style={style}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-            <Path d="M6.75 19.5H17.25C18.4926 19.5 19.5 18.4926 19.5 17.25V6.75C19.5 5.50736 18.4926 4.5 17.25 4.5H6.75C5.50736 4.5 4.5 5.50736 4.5 6.75V17.25C4.5 18.4926 5.50736 19.5 6.75 19.5ZM7.5 7.5H16.5V16.5H7.5V7.5Z" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+          <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
+            <Path
+              d="M6.75 19.5H17.25C18.4926 19.5 19.5 18.4926 19.5 17.25V6.75C19.5 5.50736 18.4926 4.5 17.25 4.5H6.75C5.50736 4.5 4.5 5.50736 4.5 6.75V17.25C4.5 18.4926 5.50736 19.5 6.75 19.5ZM7.5 7.5H16.5V16.5H7.5V7.5Z"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
             <AnimatedG animatedProps={p0Props}>
-              <Path d="M8.25 3V4.5" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M8.25 3V4.5"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={p1Props}>
-              <Path d="M12 3V4.5" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M12 3V4.5"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={p2Props}>
-              <Path d="M15.75 3V4.5" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M15.75 3V4.5"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={p3Props}>
-              <Path d="M4.5 8.25H3" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M4.5 8.25H3"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={p4Props}>
-              <Path d="M4.5 12H3" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M4.5 12H3"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={p5Props}>
-              <Path d="M4.5 15.75H3" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M4.5 15.75H3"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={p6Props}>
-              <Path d="M21 8.25H19.5" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M21 8.25H19.5"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={p7Props}>
-              <Path d="M21 12H19.5" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M21 12H19.5"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={p8Props}>
-              <Path d="M21 15.75H19.5" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M21 15.75H19.5"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={p9Props}>
-              <Path d="M8.25 19.5V21" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M8.25 19.5V21"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={p10Props}>
-              <Path d="M12 19.5V21" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M12 19.5V21"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={p11Props}>
-              <Path d="M15.75 19.5V21" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M15.75 19.5V21"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
           </Svg>
         </Animated.View>
       </IconWrapper>
     );
-  },
+  }
 );
 
 CpuChipIcon.displayName = "CpuChipIcon";

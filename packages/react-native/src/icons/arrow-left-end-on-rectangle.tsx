@@ -16,7 +16,11 @@ const ArrowLeftEndOnRectangleIcon = forwardRef<ArrowLeftEndOnRectangleIconHandle
     const translateX = useSharedValue(0);
 
     const startAnimation = useCallback(() => {
-      translateX.value = withSequence(withTiming(0, { duration: 167 }), withTiming(-2, { duration: 167 }), withTiming(0, { duration: 167 }));
+      translateX.value = withSequence(
+        withTiming(0, { duration: 167 }),
+        withTiming(-2, { duration: 167 }),
+        withTiming(0, { duration: 167 })
+      );
     }, [translateX]);
 
     const stopAnimation = useCallback(() => {
@@ -40,14 +44,26 @@ const ArrowLeftEndOnRectangleIcon = forwardRef<ArrowLeftEndOnRectangleIconHandle
         onPressOut={stopAnimation}
       >
         <Animated.View style={[animatedStyle, style]}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-            <Path d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
-            <Path d="M12 9l-3 3m0 0 3 3m-3-3h12.75" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+          <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
+            <Path
+              d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
+            <Path
+              d="M12 9l-3 3m0 0 3 3m-3-3h12.75"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
           </Svg>
         </Animated.View>
       </IconWrapper>
     );
-  },
+  }
 );
 
 ArrowLeftEndOnRectangleIcon.displayName = "ArrowLeftEndOnRectangleIcon";

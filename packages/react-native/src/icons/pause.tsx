@@ -1,6 +1,6 @@
 import { forwardRef, useCallback, useImperativeHandle } from "react";
 import Animated, {
-  useAnimatedStyle,
+  useAnimatedProps,
   useSharedValue,
   withSequence,
   withTiming,
@@ -9,27 +9,45 @@ import Svg, { Path } from "react-native-svg";
 import { IconWrapper } from "../icon-wrapper";
 import type { IconHandle, IconProps } from "../types";
 
+const AnimatedPath = Animated.createAnimatedComponent(Path);
+
 export type PauseIconHandle = IconHandle;
 
 const PauseIcon = forwardRef<PauseIconHandle, IconProps>(
   ({ size = 28, color = "currentColor", strokeWidth = 1.5, style, controlled, onPress }, ref) => {
-    const scale = useSharedValue(1);
+    const leftBarY = useSharedValue(0);
+    const rightBarY = useSharedValue(0);
 
     const startAnimation = useCallback(() => {
-      scale.value = withSequence(withTiming(1, { duration: 133 }), withTiming(1.05, { duration: 133 }), withTiming(1, { duration: 133 }));
-    }, [scale]);
+      leftBarY.value = withSequence(
+        withTiming(0, { duration: 125 }),
+        withTiming(0, { duration: 125 }),
+        withTiming(2, { duration: 125 }),
+        withTiming(0, { duration: 125 })
+      );
+      rightBarY.value = withSequence(
+        withTiming(0, { duration: 125 }),
+        withTiming(2, { duration: 125 }),
+        withTiming(0, { duration: 125 }),
+        withTiming(0, { duration: 125 })
+      );
+    }, [leftBarY, rightBarY]);
 
     const stopAnimation = useCallback(() => {
-      scale.value = withTiming(1, { duration: 200 });
-    }, [scale]);
+      leftBarY.value = withTiming(0, { duration: 200 });
+      rightBarY.value = withTiming(0, { duration: 200 });
+    }, [leftBarY, rightBarY]);
 
     useImperativeHandle(ref, () => ({
       startAnimation,
       stopAnimation,
     }));
 
-    const animatedStyle = useAnimatedStyle(() => ({
-      transform: [{ scale: scale.value }],
+    const leftBarProps = useAnimatedProps(() => ({
+      y: leftBarY.value,
+    }));
+    const rightBarProps = useAnimatedProps(() => ({
+      y: rightBarY.value,
     }));
 
     return (
@@ -39,15 +57,27 @@ const PauseIcon = forwardRef<PauseIconHandle, IconProps>(
         onPressIn={startAnimation}
         onPressOut={stopAnimation}
       >
-        <Animated.View style={[animatedStyle, style]}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-            <Path d="M15.75 5.25v13.5" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
-            <Path d="M8.25 5.25v13.5" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
-          </Svg>
-        </Animated.View>
+        <Svg fill="none" height={size} style={style} viewBox="0 0 24 24" width={size}>
+          <AnimatedPath
+            animatedProps={leftBarProps}
+            d="M15.75 5.25v13.5"
+            stroke={color}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={strokeWidth}
+          />
+          <AnimatedPath
+            animatedProps={rightBarProps}
+            d="M8.25 5.25v13.5"
+            stroke={color}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={strokeWidth}
+          />
+        </Svg>
       </IconWrapper>
     );
-  },
+  }
 );
 
 PauseIcon.displayName = "PauseIcon";

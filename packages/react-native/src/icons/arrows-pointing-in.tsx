@@ -25,15 +25,56 @@ const ArrowsPointingInIcon = forwardRef<ArrowsPointingInIconHandle, IconProps>(
     const g3TranslateY = useSharedValue(0);
 
     const startAnimation = useCallback(() => {
-      g0TranslateX.value = withSequence(withTiming(0, { duration: 167 }), withTiming(2, { duration: 167 }), withTiming(0, { duration: 167 }));
-      g0TranslateY.value = withSequence(withTiming(0, { duration: 167 }), withTiming(2, { duration: 167 }), withTiming(0, { duration: 167 }));
-      g1TranslateX.value = withSequence(withTiming(0, { duration: 167 }), withTiming(2, { duration: 167 }), withTiming(0, { duration: 167 }));
-      g1TranslateY.value = withSequence(withTiming(0, { duration: 167 }), withTiming(-2, { duration: 167 }), withTiming(0, { duration: 167 }));
-      g2TranslateX.value = withSequence(withTiming(0, { duration: 167 }), withTiming(-2, { duration: 167 }), withTiming(0, { duration: 167 }));
-      g2TranslateY.value = withSequence(withTiming(0, { duration: 167 }), withTiming(2, { duration: 167 }), withTiming(0, { duration: 167 }));
-      g3TranslateX.value = withSequence(withTiming(0, { duration: 167 }), withTiming(-2, { duration: 167 }), withTiming(0, { duration: 167 }));
-      g3TranslateY.value = withSequence(withTiming(0, { duration: 167 }), withTiming(-2, { duration: 167 }), withTiming(0, { duration: 167 }));
-    }, [g0TranslateX, g0TranslateY, g1TranslateX, g1TranslateY, g2TranslateX, g2TranslateY, g3TranslateX, g3TranslateY]);
+      g0TranslateX.value = withSequence(
+        withTiming(0, { duration: 167 }),
+        withTiming(2, { duration: 167 }),
+        withTiming(0, { duration: 167 })
+      );
+      g0TranslateY.value = withSequence(
+        withTiming(0, { duration: 167 }),
+        withTiming(2, { duration: 167 }),
+        withTiming(0, { duration: 167 })
+      );
+      g1TranslateX.value = withSequence(
+        withTiming(0, { duration: 167 }),
+        withTiming(2, { duration: 167 }),
+        withTiming(0, { duration: 167 })
+      );
+      g1TranslateY.value = withSequence(
+        withTiming(0, { duration: 167 }),
+        withTiming(-2, { duration: 167 }),
+        withTiming(0, { duration: 167 })
+      );
+      g2TranslateX.value = withSequence(
+        withTiming(0, { duration: 167 }),
+        withTiming(-2, { duration: 167 }),
+        withTiming(0, { duration: 167 })
+      );
+      g2TranslateY.value = withSequence(
+        withTiming(0, { duration: 167 }),
+        withTiming(2, { duration: 167 }),
+        withTiming(0, { duration: 167 })
+      );
+      g3TranslateX.value = withSequence(
+        withTiming(0, { duration: 167 }),
+        withTiming(-2, { duration: 167 }),
+        withTiming(0, { duration: 167 })
+      );
+      g3TranslateY.value = withSequence(
+        withTiming(0, { duration: 167 }),
+        withTiming(-2, { duration: 167 }),
+        withTiming(0, { duration: 167 })
+      );
+    }, [
+      g0TranslateX,
+      g0TranslateY,
+      g1TranslateX,
+      g1TranslateY,
+      g2TranslateX,
+      g2TranslateY,
+      g3TranslateX,
+      g3TranslateY,
+    ]);
 
     const stopAnimation = useCallback(() => {
       g0TranslateX.value = withTiming(0, { duration: 200 });
@@ -44,7 +85,16 @@ const ArrowsPointingInIcon = forwardRef<ArrowsPointingInIconHandle, IconProps>(
       g2TranslateY.value = withTiming(0, { duration: 200 });
       g3TranslateX.value = withTiming(0, { duration: 200 });
       g3TranslateY.value = withTiming(0, { duration: 200 });
-    }, [g0TranslateX, g0TranslateY, g1TranslateX, g1TranslateY, g2TranslateX, g2TranslateY, g3TranslateX, g3TranslateY]);
+    }, [
+      g0TranslateX,
+      g0TranslateY,
+      g1TranslateX,
+      g1TranslateY,
+      g2TranslateX,
+      g2TranslateY,
+      g3TranslateX,
+      g3TranslateY,
+    ]);
 
     useImperativeHandle(ref, () => ({
       startAnimation,
@@ -79,24 +129,48 @@ const ArrowsPointingInIcon = forwardRef<ArrowsPointingInIconHandle, IconProps>(
         onPressOut={stopAnimation}
       >
         <Animated.View style={style}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+          <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
             <AnimatedG animatedProps={g0Props}>
-              <Path d="M9 9V4.5M9 9H4.5M9 9 3.75 3.75" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M9 9V4.5M9 9H4.5M9 9 3.75 3.75"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={g1Props}>
-              <Path d="M9 15v4.5M9 15H4.5M9 15l-5.25 5.25" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M9 15v4.5M9 15H4.5M9 15l-5.25 5.25"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={g2Props}>
-              <Path d="M15 9h4.5M15 9V4.5M15 9l5.25-5.25" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M15 9h4.5M15 9V4.5M15 9l5.25-5.25"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={g3Props}>
-              <Path d="M15 15h4.5M15 15v4.5m0-4.5 5.25 5.25" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M15 15h4.5M15 15v4.5m0-4.5 5.25 5.25"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
           </Svg>
         </Animated.View>
       </IconWrapper>
     );
-  },
+  }
 );
 
 ArrowsPointingInIcon.displayName = "ArrowsPointingInIcon";

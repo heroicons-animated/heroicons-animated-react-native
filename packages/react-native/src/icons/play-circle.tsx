@@ -17,8 +17,18 @@ const PlayCircleIcon = forwardRef<PlayCircleIconHandle, IconProps>(
     const translateX = useSharedValue(0);
 
     const startAnimation = useCallback(() => {
-      rotate.value = withSequence(withTiming(0, { duration: 125 }), withTiming(-10, { duration: 125 }), withTiming(0, { duration: 125 }), withTiming(0, { duration: 125 }));
-      translateX.value = withSequence(withTiming(0, { duration: 125 }), withTiming(-1, { duration: 125 }), withTiming(2, { duration: 125 }), withTiming(0, { duration: 125 }));
+      rotate.value = withSequence(
+        withTiming(0, { duration: 125 }),
+        withTiming(-10, { duration: 125 }),
+        withTiming(0, { duration: 125 }),
+        withTiming(0, { duration: 125 })
+      );
+      translateX.value = withSequence(
+        withTiming(0, { duration: 125 }),
+        withTiming(-1, { duration: 125 }),
+        withTiming(2, { duration: 125 }),
+        withTiming(0, { duration: 125 })
+      );
     }, [rotate, translateX]);
 
     const stopAnimation = useCallback(() => {
@@ -43,14 +53,26 @@ const PlayCircleIcon = forwardRef<PlayCircleIconHandle, IconProps>(
         onPressOut={stopAnimation}
       >
         <Animated.View style={[animatedStyle, style]}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-            <Path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
-            <Path d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+          <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
+            <Path
+              d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
+            <Path
+              d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
           </Svg>
         </Animated.View>
       </IconWrapper>
     );
-  },
+  }
 );
 
 PlayCircleIcon.displayName = "PlayCircleIcon";

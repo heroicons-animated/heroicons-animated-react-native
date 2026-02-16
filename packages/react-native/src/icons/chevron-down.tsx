@@ -16,7 +16,11 @@ const ChevronDownIcon = forwardRef<ChevronDownIconHandle, IconProps>(
     const translateY = useSharedValue(0);
 
     const startAnimation = useCallback(() => {
-      translateY.value = withSequence(withTiming(0, { duration: 167 }), withTiming(2, { duration: 167 }), withTiming(0, { duration: 167 }));
+      translateY.value = withSequence(
+        withTiming(0, { duration: 167 }),
+        withTiming(2, { duration: 167 }),
+        withTiming(0, { duration: 167 })
+      );
     }, [translateY]);
 
     const stopAnimation = useCallback(() => {
@@ -40,13 +44,19 @@ const ChevronDownIcon = forwardRef<ChevronDownIconHandle, IconProps>(
         onPressOut={stopAnimation}
       >
         <Animated.View style={[animatedStyle, style]}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-            <Path d="m19.5 8.25-7.5 7.5-7.5-7.5" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+          <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
+            <Path
+              d="m19.5 8.25-7.5 7.5-7.5-7.5"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
           </Svg>
         </Animated.View>
       </IconWrapper>
     );
-  },
+  }
 );
 
 ChevronDownIcon.displayName = "ChevronDownIcon";

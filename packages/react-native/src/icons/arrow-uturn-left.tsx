@@ -1,13 +1,15 @@
 import { forwardRef, useCallback, useImperativeHandle } from "react";
 import Animated, {
-  useAnimatedStyle,
+  useAnimatedProps,
   useSharedValue,
   withSequence,
   withTiming,
 } from "react-native-reanimated";
-import Svg, { Path } from "react-native-svg";
+import Svg, { G, Path } from "react-native-svg";
 import { IconWrapper } from "../icon-wrapper";
 import type { IconHandle, IconProps } from "../types";
+
+const AnimatedG = Animated.createAnimatedComponent(G);
 
 export type ArrowUturnLeftIconHandle = IconHandle;
 
@@ -17,8 +19,16 @@ const ArrowUturnLeftIcon = forwardRef<ArrowUturnLeftIconHandle, IconProps>(
     const translateX = useSharedValue(0);
 
     const startAnimation = useCallback(() => {
-      scaleX.value = withSequence(withTiming(1, { duration: 150 }), withTiming(1.15, { duration: 150 }), withTiming(1, { duration: 150 }));
-      translateX.value = withSequence(withTiming(0, { duration: 150 }), withTiming(-1.5, { duration: 150 }), withTiming(0, { duration: 150 }));
+      scaleX.value = withSequence(
+        withTiming(1, { duration: 150 }),
+        withTiming(1.15, { duration: 150 }),
+        withTiming(1, { duration: 150 })
+      );
+      translateX.value = withSequence(
+        withTiming(0, { duration: 150 }),
+        withTiming(-1.5, { duration: 150 }),
+        withTiming(0, { duration: 150 })
+      );
     }, [scaleX, translateX]);
 
     const stopAnimation = useCallback(() => {
@@ -31,8 +41,9 @@ const ArrowUturnLeftIcon = forwardRef<ArrowUturnLeftIconHandle, IconProps>(
       stopAnimation,
     }));
 
-    const animatedStyle = useAnimatedStyle(() => ({
-      transform: [{ scaleX: scaleX.value }, { translateX: translateX.value }],
+    const arrowGroupProps = useAnimatedProps(() => ({
+      scaleX: scaleX.value,
+      x: translateX.value,
     }));
 
     return (
@@ -42,15 +53,29 @@ const ArrowUturnLeftIcon = forwardRef<ArrowUturnLeftIconHandle, IconProps>(
         onPressIn={startAnimation}
         onPressOut={stopAnimation}
       >
-        <Animated.View style={[animatedStyle, style]}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-            <Path d="M3 9h12a6 6 0 0 1 0 12h-3" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
-            <Path d="M9 15 3 9m0 0 6-6" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+        <Animated.View style={style}>
+          <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
+            <Path
+              d="M3 9h12a6 6 0 0 1 0 12h-3"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
+            <AnimatedG animatedProps={arrowGroupProps}>
+              <Path
+                d="M9 15 3 9m0 0 6-6"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
+            </AnimatedG>
           </Svg>
         </Animated.View>
       </IconWrapper>
     );
-  },
+  }
 );
 
 ArrowUturnLeftIcon.displayName = "ArrowUturnLeftIcon";

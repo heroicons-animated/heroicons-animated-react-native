@@ -19,8 +19,16 @@ const ChevronUpDownIcon = forwardRef<ChevronUpDownIconHandle, IconProps>(
     const p1TranslateY = useSharedValue(0);
 
     const startAnimation = useCallback(() => {
-      p0TranslateY.value = withSequence(withTiming(0, { duration: 167 }), withTiming(-2, { duration: 167 }), withTiming(0, { duration: 167 }));
-      p1TranslateY.value = withSequence(withTiming(0, { duration: 167 }), withTiming(2, { duration: 167 }), withTiming(0, { duration: 167 }));
+      p0TranslateY.value = withSequence(
+        withTiming(0, { duration: 167 }),
+        withTiming(-2, { duration: 167 }),
+        withTiming(0, { duration: 167 })
+      );
+      p1TranslateY.value = withSequence(
+        withTiming(0, { duration: 167 }),
+        withTiming(2, { duration: 167 }),
+        withTiming(0, { duration: 167 })
+      );
     }, [p0TranslateY, p1TranslateY]);
 
     const stopAnimation = useCallback(() => {
@@ -49,18 +57,30 @@ const ChevronUpDownIcon = forwardRef<ChevronUpDownIconHandle, IconProps>(
         onPressOut={stopAnimation}
       >
         <Animated.View style={style}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+          <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
             <AnimatedG animatedProps={p0Props}>
-              <Path d="M8.25 9 12 5.25 15.75 9" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M8.25 9 12 5.25 15.75 9"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
             <AnimatedG animatedProps={p1Props}>
-              <Path d="M8.25 15 12 18.75 15.75 15" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+              <Path
+                d="M8.25 15 12 18.75 15.75 15"
+                stroke={color}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={strokeWidth}
+              />
             </AnimatedG>
           </Svg>
         </Animated.View>
       </IconWrapper>
     );
-  },
+  }
 );
 
 ChevronUpDownIcon.displayName = "ChevronUpDownIcon";

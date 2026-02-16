@@ -2,13 +2,12 @@
  * Maps icon names to their React Native components.
  * We import a representative subset and use lazy require for the rest.
  */
-import React from "react";
+
 import type { IconHandle, IconProps } from "@heroicons-animated/react-native";
 import * as AllIcons from "@heroicons-animated/react-native";
+import React from "react";
 
-type IconComponent = React.ForwardRefExoticComponent<
-  IconProps & React.RefAttributes<IconHandle>
->;
+type IconComponent = React.ForwardRefExoticComponent<IconProps & React.RefAttributes<IconHandle>>;
 
 // Build a map from component names to components
 const iconMap: Record<string, IconComponent> = {};

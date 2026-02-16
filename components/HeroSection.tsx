@@ -1,16 +1,8 @@
 import { useCallback } from "react";
-import {
-  Linking,
-  Platform,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-  useColorScheme,
-} from "react-native";
-import { Colors } from "../constants/theme";
-import { LINK } from "../constants/site";
+import { Linking, Platform, Pressable, StyleSheet, Text, useColorScheme, View } from "react-native";
 import { ALL_ICONS } from "../constants/icons";
+import { LINK } from "../constants/site";
+import { Colors } from "../constants/theme";
 
 const ICON_COUNT = ALL_ICONS.length;
 
@@ -51,15 +43,15 @@ export function HeroSection() {
       >
         an open-source (
         <Text
-          style={[styles.link, { color: colors.textMuted }]}
-          onPress={() => openExternal(LINK.LICENSE)}
-          accessibilityRole="link"
           accessibilityLabel="Open MIT license"
+          accessibilityRole="link"
+          onPress={() => openExternal(LINK.LICENSE)}
+          style={[styles.link, { color: colors.textMuted }]}
         >
           MIT License
         </Text>
-        ) collection of smooth animated {ICON_COUNT} icons for your React Native
-        projects. feel free to use them!
+        ) collection of smooth animated {ICON_COUNT} icons for your React Native projects. feel free
+        to use them!
       </Text>
 
       {/* Badges */}
@@ -76,14 +68,12 @@ export function HeroSection() {
           Crafted with{" "}
         </Text>
         <Pressable
-          onPress={() => openExternal(LINK.REANIMATED)}
-          accessibilityRole="link"
           accessibilityLabel="Open Reanimated documentation"
+          accessibilityRole="link"
+          onPress={() => openExternal(LINK.REANIMATED)}
           style={[styles.badge, { backgroundColor: colors.badgeBg }]}
         >
-          <Text style={[styles.badgeLabel, { color: colors.primary }]}>
-            Reanimated
-          </Text>
+          <Text style={[styles.badgeLabel, { color: colors.primary }]}>Reanimated</Text>
         </Pressable>
         <Text
           style={[
@@ -98,14 +88,12 @@ export function HeroSection() {
           &{" "}
         </Text>
         <Pressable
-          onPress={() => openExternal(LINK.HEROICONS)}
-          accessibilityRole="link"
           accessibilityLabel="Open Heroicons website"
+          accessibilityRole="link"
+          onPress={() => openExternal(LINK.HEROICONS)}
           style={[styles.badge, { backgroundColor: colors.badgeBg }]}
         >
-          <Text style={[styles.badgeLabel, { color: colors.primary }]}>
-            Heroicons
-          </Text>
+          <Text style={[styles.badgeLabel, { color: colors.primary }]}>Heroicons</Text>
         </Pressable>
       </View>
     </View>

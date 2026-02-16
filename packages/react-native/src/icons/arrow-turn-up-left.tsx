@@ -17,8 +17,16 @@ const ArrowTurnUpLeftIcon = forwardRef<ArrowTurnUpLeftIconHandle, IconProps>(
     const translateX = useSharedValue(0);
 
     const startAnimation = useCallback(() => {
-      scaleX.value = withSequence(withTiming(1, { duration: 150 }), withTiming(1.15, { duration: 150 }), withTiming(1, { duration: 150 }));
-      translateX.value = withSequence(withTiming(0, { duration: 150 }), withTiming(-2, { duration: 150 }), withTiming(0, { duration: 150 }));
+      scaleX.value = withSequence(
+        withTiming(1, { duration: 150 }),
+        withTiming(1.15, { duration: 150 }),
+        withTiming(1, { duration: 150 })
+      );
+      translateX.value = withSequence(
+        withTiming(0, { duration: 150 }),
+        withTiming(-2, { duration: 150 }),
+        withTiming(0, { duration: 150 })
+      );
     }, [scaleX, translateX]);
 
     const stopAnimation = useCallback(() => {
@@ -43,13 +51,19 @@ const ArrowTurnUpLeftIcon = forwardRef<ArrowTurnUpLeftIconHandle, IconProps>(
         onPressOut={stopAnimation}
       >
         <Animated.View style={[animatedStyle, style]}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-            <Path d="M7.49 12 3.74 8.248m0 0 3.75-3.75m-3.75 3.75h16.5V19.5" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+          <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
+            <Path
+              d="M7.49 12 3.74 8.248m0 0 3.75-3.75m-3.75 3.75h16.5V19.5"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
           </Svg>
         </Animated.View>
       </IconWrapper>
     );
-  },
+  }
 );
 
 ArrowTurnUpLeftIcon.displayName = "ArrowTurnUpLeftIcon";

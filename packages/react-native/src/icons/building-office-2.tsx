@@ -16,7 +16,10 @@ const BuildingOffice2Icon = forwardRef<BuildingOffice2IconHandle, IconProps>(
     const opacity = useSharedValue(1);
 
     const startAnimation = useCallback(() => {
-      opacity.value = withSequence(withTiming(0, { duration: 150 }), withTiming(1, { duration: 150 }));
+      opacity.value = withSequence(
+        withTiming(0, { duration: 150 }),
+        withTiming(1, { duration: 150 })
+      );
     }, [opacity]);
 
     const stopAnimation = useCallback(() => {
@@ -40,13 +43,19 @@ const BuildingOffice2Icon = forwardRef<BuildingOffice2IconHandle, IconProps>(
         onPressOut={stopAnimation}
       >
         <Animated.View style={[animatedStyle, style]}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-            <Path d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+          <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
+            <Path
+              d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
           </Svg>
         </Animated.View>
       </IconWrapper>
     );
-  },
+  }
 );
 
 BuildingOffice2Icon.displayName = "BuildingOffice2Icon";

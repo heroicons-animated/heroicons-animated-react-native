@@ -18,8 +18,22 @@ const ExclamationTriangleIcon = forwardRef<ExclamationTriangleIconHandle, IconPr
     const opacity = useSharedValue(1);
 
     const startAnimation = useCallback(() => {
-      scale.value = withRepeat(withSequence(withTiming(1, { duration: 267 }), withTiming(1.1, { duration: 267 }), withTiming(1, { duration: 267 })), -1);
-      opacity.value = withRepeat(withSequence(withTiming(1, { duration: 267 }), withTiming(0.4, { duration: 267 }), withTiming(1, { duration: 267 })), -1);
+      scale.value = withRepeat(
+        withSequence(
+          withTiming(1, { duration: 267 }),
+          withTiming(1.1, { duration: 267 }),
+          withTiming(1, { duration: 267 })
+        ),
+        -1
+      );
+      opacity.value = withRepeat(
+        withSequence(
+          withTiming(1, { duration: 267 }),
+          withTiming(0.4, { duration: 267 }),
+          withTiming(1, { duration: 267 })
+        ),
+        -1
+      );
     }, [scale, opacity]);
 
     const stopAnimation = useCallback(() => {
@@ -45,15 +59,33 @@ const ExclamationTriangleIcon = forwardRef<ExclamationTriangleIconHandle, IconPr
         onPressOut={stopAnimation}
       >
         <Animated.View style={[animatedStyle, style]}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-            <Path d="M2.697 16.126c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126Z" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
-            <Path d="M12 9v3.75" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
-            <Path d="M12 15.75h.007v.008H12v-.008Z" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+          <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
+            <Path
+              d="M2.697 16.126c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126Z"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
+            <Path
+              d="M12 9v3.75"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
+            <Path
+              d="M12 15.75h.007v.008H12v-.008Z"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
           </Svg>
         </Animated.View>
       </IconWrapper>
     );
-  },
+  }
 );
 
 ExclamationTriangleIcon.displayName = "ExclamationTriangleIcon";

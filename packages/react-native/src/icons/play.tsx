@@ -17,8 +17,18 @@ const PlayIcon = forwardRef<PlayIconHandle, IconProps>(
     const translateX = useSharedValue(0);
 
     const startAnimation = useCallback(() => {
-      rotate.value = withSequence(withTiming(0, { duration: 125 }), withTiming(-10, { duration: 125 }), withTiming(0, { duration: 125 }), withTiming(0, { duration: 125 }));
-      translateX.value = withSequence(withTiming(0, { duration: 125 }), withTiming(-1, { duration: 125 }), withTiming(2, { duration: 125 }), withTiming(0, { duration: 125 }));
+      rotate.value = withSequence(
+        withTiming(0, { duration: 125 }),
+        withTiming(-10, { duration: 125 }),
+        withTiming(0, { duration: 125 }),
+        withTiming(0, { duration: 125 })
+      );
+      translateX.value = withSequence(
+        withTiming(0, { duration: 125 }),
+        withTiming(-1, { duration: 125 }),
+        withTiming(2, { duration: 125 }),
+        withTiming(0, { duration: 125 })
+      );
     }, [rotate, translateX]);
 
     const stopAnimation = useCallback(() => {
@@ -43,13 +53,19 @@ const PlayIcon = forwardRef<PlayIconHandle, IconProps>(
         onPressOut={stopAnimation}
       >
         <Animated.View style={[animatedStyle, style]}>
-          <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-            <Path d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+          <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
+            <Path
+              d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z"
+              stroke={color}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={strokeWidth}
+            />
           </Svg>
         </Animated.View>
       </IconWrapper>
     );
-  },
+  }
 );
 
 PlayIcon.displayName = "PlayIcon";
