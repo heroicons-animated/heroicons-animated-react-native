@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Platform, StyleSheet, Text, TextInput, useColorScheme, View } from "react-native";
 import Svg, { Path } from "react-native-svg";
 import { Colors } from "../constants/theme";
@@ -26,6 +27,32 @@ export function SearchBar({ value, onChangeText, resultCount, totalCount }: Sear
   const colors = Colors[colorScheme];
   const isFiltering = value.trim().length > 0;
   const monoFont = Platform.OS === "ios" ? "Menlo" : "monospace";
+  const inputRef = useRef<TextInput>(null);
+
+  useEffect(() => {
+    if (Platform.OS !== "web") {
+      return;
+    }
+
+    const webWindow = globalThis as unknown as Window;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      const key = event.key.toLowerCase();
+      if ((event.metaKey || event.ctrlKey) && key === "k") {
+        event.preventDefault();
+        inputRef.current?.focus();
+      }
+      if (key === "escape") {
+        event.preventDefault();
+        onChangeText("");
+        inputRef.current?.blur();
+      }
+    };
+
+    webWindow.addEventListener("keydown", handleKeyDown);
+    return () => {
+      webWindow.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [onChangeText]);
 
   return (
     <View
@@ -59,6 +86,7 @@ export function SearchBar({ value, onChangeText, resultCount, totalCount }: Sear
           onChangeText={onChangeText}
           placeholder="Search icons..."
           placeholderTextColor="#a3a3a3"
+          ref={inputRef}
           returnKeyType="search"
           style={[
             styles.input,
@@ -78,8 +106,7 @@ export function SearchBar({ value, onChangeText, resultCount, totalCount }: Sear
             },
           ]}
         >
-          {isFiltering ? `${resultCount}/` : ""}
-          {totalCount}
+          {isFiltering ? `${resultCount}/${totalCount}` : "⌘ K"}
         </Text>
       </View>
     </View>

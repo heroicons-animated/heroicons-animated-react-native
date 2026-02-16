@@ -1,10 +1,25 @@
 import { useCallback } from "react";
-import { Linking, Platform, Pressable, StyleSheet, Text, useColorScheme, View } from "react-native";
+import {
+  Linking,
+  Platform,
+  Pressable,
+  StyleSheet,
+  Text,
+  useColorScheme,
+  View,
+} from "react-native";
 import Svg, { Path } from "react-native-svg";
 import { LINK } from "../constants/site";
 import { Colors } from "../constants/theme";
+import { Avatar, AvatarImage } from "./ui/avatar";
 
-function ArrowTopRightIcon({ color, size = 14 }: { color: string; size?: number }) {
+function ArrowTopRightIcon({
+  color,
+  size = 14,
+}: {
+  color: string;
+  size?: number;
+}) {
   return (
     <Svg
       fill="none"
@@ -34,7 +49,9 @@ export function CommentBlock() {
   return (
     <View style={styles.container}>
       {/* Left accent bar */}
-      <View style={[styles.accentBar, { backgroundColor: "rgba(163,163,163,0.5)" }]} />
+      <View
+        style={[styles.accentBar, { backgroundColor: "rgba(163,163,163,0.5)" }]}
+      />
 
       <View style={styles.content}>
         {/* Quote */}
@@ -71,17 +88,14 @@ export function CommentBlock() {
         {/* Author row */}
         <View style={[styles.authorRow, { borderTopColor: colors.border }]}>
           <View style={styles.authorInfo}>
-            {/* Avatar placeholder */}
-            <View
-              style={[
-                styles.avatar,
-                {
-                  backgroundColor: colorScheme === "dark" ? "#262626" : "#e5e5e5",
-                },
-              ]}
-            >
-              <Text style={[styles.avatarText, { fontFamily: sansFont }]}>AP</Text>
-            </View>
+            <Avatar size={28}>
+              <AvatarImage
+                alt="Aniket Pawar avatar"
+                source={{
+                  uri: "https://ik.imagekit.io/2oajjadqkz/profile.jpg?updatedAt=1770631384305",
+                }}
+              />
+            </Avatar>
             <Text
               style={[
                 styles.authorText,
@@ -115,7 +129,9 @@ export function CommentBlock() {
               },
             ]}
           >
-            <Text style={[styles.courseButtonText, { fontFamily: sansFont }]}>Take the course</Text>
+            <Text style={[styles.courseButtonText, { fontFamily: sansFont }]}>
+              Take the course
+            </Text>
             <ArrowTopRightIcon color="#ffffff" size={14} />
           </Pressable>
         </View>
@@ -164,18 +180,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 8,
-  },
-  avatar: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  avatarText: {
-    fontSize: 11,
-    fontWeight: "500",
-    color: "#737373",
   },
   authorText: {
     fontSize: 13,
